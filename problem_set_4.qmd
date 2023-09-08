@@ -1,0 +1,45 @@
+---
+title: "Problem Set 4"
+subtitle: "Due date: 16 October"
+format: 
+  html:
+    self-contained: true
+toc: true
+editor: visual
+execute: 
+  echo: true
+---
+
+Please upload your completed assignment to the ELMs course site (under the assignments menu). Remember to include an annotated script file for all work with R and show your math for all other problems (if applicable, or necessary). Please also upload your completed assignment to the Github repository that you have shared with us. *We should be able to run your script with no errors.*
+
+**Total points: 30**
+
+## Question 1
+
+*Points: 5*
+
+Suppose I am playing poker with a regular deck of 52 cards. I have three cards in my hand, one of which is a king. What is the probability that the next two cards I draw will both be kings?
+
+## Question 2
+
+*Points: 5*
+
+A survey of 1,500 randomly selected individuals reveals that 46% of them have a college degree and that 31% of them have a gun in their house. If you were to assume that college graduation and gun ownership are independent of one another, what is the probability that an individual is both a college graduate and does not have a gun in his or her house?
+
+## Question 3
+
+*Points: 5*
+
+I roll a fair six-sided dice and I get a number greater than three. What is the probability that the next two dice rolls will also generate numbers greater than three?
+
+## Question 4
+
+*Points: 10*
+
+Assume that in the United States, 15% of people are smokers and, of smokers, 60% smoke at least one pack a day. Among those who smoke at least a pack a day, 60% will develop lung cancer at some point in their lives while, in the rest of the population (which includes smokers who smoke less than a pack a day and non-smokers), only 10% will. What is the probability that a person who develops lung cancer was a smoker who smoked at least a pack a day?
+
+## Question 5
+
+*Points: 5*
+
+Assume that in the world, 60% of countries are democracies and 80% of countries have ratified the Rome Statute for the International Criminal Court. Assume further that 90% of democracies have ratified the Rome Accords. What is the probability that a country is either a democracy or has ratified the Rome Accords?

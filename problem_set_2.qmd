@@ -1,0 +1,87 @@
+---
+title: "Problem Set 2"
+subtitle: "Due date: 25 September"
+format: 
+  html:
+    self-contained: true
+toc: true
+editor: visual
+execute: 
+  echo: false
+  warning: false
+  message: false
+---
+
+Please upload your completed assignment to the ELMs course site (under the assignments menu). Remember to include an annotated script file for all work with R and show your math for all other problems (if applicable, or necessary). Please also upload your completed assignment to the Github repository that you have shared with us. *We should be able to run your script with no errors.*
+
+**Total points: 30**
+
+## Question 1
+
+*Points: 5*
+
+Using the `states` data, produce a scatterplot of the variables `womleg_2015` and `libpct_m` (with `womleg_2015` as the dependent variable on the y-axis). Describe the scatterplot and include a copy of it. Note any suspected outliers, if any (a visual inspection will suffice for this question). Lastly, give the general equation for the correlation between `womleg_2015` and `libpct_m` (include as much information as possible), but do not solve it.
+
+::: callout-note
+The `states` data set can be found in `poliscidata::states`. Take a look at `?states` to see what these variables measure.
+:::
+
+## Question 2
+
+*Points: 5*
+
+Regress `womleg_2015` (as the dependent variable) on `libpct_m` and report the results in a professionally formatted table. Write the model equation with the estimated coefficients and interpret them. What does the value of $R^2$ tell us about this model?
+
+## Question 3
+
+*Points: 5*
+
+Based on this regression, find the predicted value, the observed value, and compute the residual for the state of Colorado and then the state of Georgia. Lastly, compute the total aggregate error from those two select observations combined (i.e., Colorado and Georgia).
+
+::: callout-tip
+Think RSS.
+:::
+
+## Question 4
+
+*Points: 5*
+
+Using the `states` dataset, assess the relationship between the following two variables: `obama_win12` and `gun_rank3`. Construct a cross-tab and describe the nature of the relationship (if any) in detail.
+
+::: callout-note
+The variable `Obama_win12` is a dichotomous indicator of whether Obama won the state in 2012 (Obama won; Obama lost). The variable `gun_rank3` represents the general (ordinal) extent of gun restrictions in each state (more restrictions; middle restrictions; less restrictions).
+:::
+
+::: callout-caution
+Please note that you would customarily want a greater number of observations within each cell before conducting such an analysis.
+:::
+
+## Question 5
+
+*Points: 5*
+
+I hypothesize that religious identifiers in the mass public are less likely to support federal government support of scientific research. I use data from the General Social Survey to evaluate this hypothesis. In particular, I use a three-category indicator of religious attendance to measure religious identification (low attendance; moderate attendance; high attendance) and a three-category indicator of perceptions toward the federal government's support for scientific research (federal government provides "too little" support; "about right"; federal government provides "too much" support). Complete the cross-tab below so that you may properly evaluate my hypothesis.
+
+::: callout-note
+Table entries are raw counts of observations within each cell.
+:::
+
+![](img/ps2_cross_tab.png)
+
+## Question 6
+
+*Points: 5*
+
+Say I wish to explore the relationship between the relative advantage of Democrats (`dem_advantage`) in a state and abortion policy (`abort_rank3`). The `dem_advantage` variable is a continuous indicator where higher values represent a greater Democratic advantage among the mass public; `abort_rank3` is an ordinal indicator for the extent of abortion restrictions in each state (fewer restrictions; middle restrictions; more restrictions). To explore this relationship, complete the following:
+
+### Part A
+
+Create a new variable (i.e., `dem_adv`) based on the `dem_advantage` variable. Calculate the summary statistics of `dem_advantage` and assign the following values to our new variable: if `dem_advantage` is less than the first quartile, set `dem_adv` to `Low`; if the value for `dem_advantage` is greater than the first quartile and less than the third quartile, set the value to `Mid`; and if the value of `dem_advantage` is greater than the third quartile, set the value to `High`.
+
+### Part B
+
+Create a crosstab using R; include your results in a professionally formatted table.
+
+### Part C
+
+What relationship (if any) is there between the relative advantage of Democrats is a given state and the restrictiveness of Abortion policy?

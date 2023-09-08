@@ -1,0 +1,101 @@
+---
+title: "Problem Set 6"
+subtitle: "Due date: 30 October"
+format: 
+  html:
+    self-contained: true
+toc: true
+editor: visual
+execute: 
+  echo: true
+---
+
+Please upload your completed assignment to the ELMs course site (under the assignments menu). Remember to include an annotated script file for all work with R and show your math for all other problems (if applicable, or necessary). Please also upload your completed assignment to the Github repository that you have shared with us. *We should be able to run your script with no errors.*
+
+**Total points: 40**
+
+## Question 1
+
+*Points: 10*
+
+I hypothesize that the mean mathematics SAT score for University of Maryland students is different than 600. I take an SRS of 625 students and find that the mean mathematics score among those students is 610. The standard deviation of my sample is 75.
+
+### Part A
+
+Based on my sample, what is a point estimate for the mean mathematics SAT score for University of Maryland students?
+
+### Part B
+
+What is a 95% confidence interval around that estimate?
+
+### Part C
+
+What is the null hypothesis?
+
+### Part D
+
+What is the two-tailed p-value and what does it mean?
+
+### Part E
+
+Do the data support my hypothesis? Why, or why not?
+
+## Question 2
+
+*Points: 10*
+
+I take an SRS of 900 citizens in a public opinion survey and find that the mean feeling thermometer rating (on a 0 to 100 scale) of President Biden is 51.5 with a standard deviation of 25. Now, suppose I hypothesize that feelings toward Biden should be greater than 50.
+
+### Part A
+
+What is the null hypothesis?
+
+### Part B
+
+What is a 95% confidence interval around the sample statistic? Does this interval indicate support for a two-tailed test of my hypothesis (`p < 0.05` as the threshold)? Why, or why not?
+
+### Part C
+
+What is a 90% confidence interval around the sample statistic? Does this interval indicate support for a one-tailed test of my hypothesis (`p < 0.05` as the threshold)? Why, or why not?
+
+## Question 3
+
+*Points: 5*
+
+Suppose I conduct a difference of means test and obtain a t-statistic of 2.50. What does this indicate about the statistical significance of the sample mean compared to the null hypothesis?
+
+## Question 4
+
+*Points: 5*
+
+I hypothesize that fewer than 40% of registered voters approve of President Biden. I conduct an SRS of 720 registered voters and find that 37.9% of them approve of President Biden.
+
+### Part A
+
+Based on my sample, what is a point estimate for the proportion of the population that approves of President Biden?
+
+### Part B
+
+What is a 90% confidence interval around that estimate?
+
+### Part C
+
+What is the null hypothesis?
+
+### Part D
+
+What is the one-tailed p-value and what does it mean?
+
+### Part E
+
+Do the data support my hypothesis? Why, or why not?
+
+## Question 5
+
+*Points: 5*
+
+I hypothesize that in countries where Islam is the predominate religious group, women have a greater number of children on average (i.e., the total fertility rate is higher). Use the `world` dataset to test my hypothesis. State the null hypothesis and interpret what the results tell us about the null and alternative hypotheses. Be sure to show all work necessary to find the answer (i.e., you may use R to assist you, but you should show the necessary computations by hand).
+
+::: {.callout-note}
+The `world` data set can be found in `poliscidata::world`. 
+:::

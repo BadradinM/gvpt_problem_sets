@@ -1,0 +1,55 @@
+---
+title: "Problem Set 7"
+subtitle: "Due date: 6 November"
+format: 
+  html:
+    self-contained: true
+toc: true
+editor: visual
+execute: 
+  echo: true
+---
+
+Please upload your completed assignment to the ELMs course site (under the assignments menu). Remember to include an annotated script file for all work with R and show your math for all other problems (if applicable, or necessary). Please also upload your completed assignment to the Github repository that you have shared with us. *We should be able to run your script with no errors.*
+
+**Total points: 20**
+
+## Question 1
+
+*Total points: 10*
+
+I hypothesize that the older someone is, the more they like watching golf. I conduct a survey based on an SRS of adults in America. The independent variable is a four-category measure of age: 21-35, 36-50, 51-65, 66-plus. The dependent variable is a three-category measure of how much they enjoy watching golf: not at all, somewhat, very much.
+
+### Part A
+
+*Points: 4*
+
+Make a cross-tab, by hand, of the relationship between these two variables based on the following (completely made up) data. Make sure that you present both raw counts and the appropriate percentages to examine the relationship.
+
+![](img/PS7.png)
+
+### Part B
+
+*Points: 2*
+
+Do the data support my hypothesis? Be sure to explain the nature of the relationship (or lack thereof, if relevant).
+
+### Part C
+
+*Points: 2*
+
+Compute (by hand) the chi-square statistic to test the null hypothesis of no relationship between these two variables. Be sure to show your work.
+
+### Part D
+
+*Points: 2*
+
+Using the chi-square statistic that you computed in question 1(c), can you reject the null hypothesis of no relationship between these two variables with 95% confidence? Why, or why not?
+
+## Question 2
+
+*Points: 10*
+
+I hypothesize that people who identify as more liberal are less likely to see gun control as an important issue than people who identify as more conservative. Using the `nes` dataset from the `poliscidata` package, create a cross-tab examining the effect of someone's self-identification as liberal or conservative, measured using the variable `libcon3` variable, and their indication of how important gun access is to them as an issue, measured using the `gun_importance3` variable.
+
+Do the data support my hypothesis? Be sure to explain the nature of the relationship (or lack thereof, if relevant). Report a chi-square statistic (it is fine to have R generate the statistic and p-value). What does the chi-square statistic tell you about whether you can reject the null hypothesis of no relationship between these two variables with 95% confidence? Why, or why not?
