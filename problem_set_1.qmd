@@ -9,6 +9,10 @@ execute:
   echo: true
 ---
 
+```{r}
+library(tidyverse)
+```
+
 Please upload your completed assignment to the ELMs course site (under the assignments menu). Remember to include an annotated script file for all work with R and show your math for all other problems (if applicable, or necessary). Please also upload your completed assignment to the Github repository that you have shared with us. *We should be able to run your script with no errors.*
 
 **Total points: 25**
@@ -22,6 +26,13 @@ Using the `gss` dataset (which has survey data with the individual respondent as
 ::: callout-note
 The `gss` dataset can be found in `poliscidata::gss`. Take a look at `?gss` to see what these variables measure.
 :::
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(poliscidata)
+freq(gss$degree)
+```
 
 ## Question 2
 
