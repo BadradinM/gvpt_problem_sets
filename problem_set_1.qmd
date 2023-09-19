@@ -24,10 +24,27 @@ The `gss` dataset can be found in `poliscidata::gss`. Take a look at `?gss` to s
 :::
 
 ```{r}
+library(tidyverse)
 library(poliscidata)
-freq(gss$degree)
-freq(gss$partyid_3)
+library(ggplot2)
+ggplot(gss,aes(x = partyid_3))+
+  geom_bar()+
+  labs(x = "Party affiliation")+
+  theme_minimal()
+freq(gss$partyid_3, plot = F)
 ```
+
+This variable (partyid_3) has some level of dispersion, the cases are spread evenly across all value of the variable. With Indepedent's acquiring most of the cases at 40%, followed by democrat at 36% and republican at 23%.
+
+```{r}
+ggplot(gss, aes(x = degree))+
+  geom_bar()+
+  labs(x = "Education Level")+
+  theme_minimal()
+freq(gss$degree, plot = F)
+```
+
+The variable *degree,* has low degree of dispersion. Most of the cases fall under HS at 49%.
 
 ## Question 2
 
@@ -49,17 +66,21 @@ iq <- c(
 Find the five-number summary, mean, and standard deviation for these data. Also, are there any suspected outliers in the distribution? If so, what are they and how do you know?
 
 ```{r}
-summary(iq)
-iq_sd <- sd(iq)
-iq_sd
+skimr::skim(iq)
 hist(iq)
 ```
 
-### Part B
+There are no suspected outliers in the distribution. The distribution is Skewed to the left.
+
+Part B
 
 *Points: 5*
 
 In large populations, IQ scores are standardized to have a mean of 100 and a standard deviation of 15. In what way does the distribution among these students differ from the overall population?
+
+The IQ scores have a mean of 114.98 and standard deviation (SD) of 14.8, the mean of the IQ scores of the student is higher than the population mean.
+
+The SD is little lower than the SD for the general population. this shows that the score in the sample are less spread compared to the population.
 
 ## Question 3
 
@@ -67,13 +88,13 @@ In large populations, IQ scores are standardized to have a mean of 100 and a sta
 
 A polling firm is interested in determining how different characteristics of an individual affect vote choice. They record the following characteristics for each survey respondent - race, age, household income, and party affiliation. What "type" of variable does each characteristic most likely represent?
 
-Race = Categorical (Ordered)
+Race = Categorical (nominal)
 
 Age = Continuous
 
 Household income = Continuous
 
-Party affiliation = Categorical (Unordered)
+Party affiliation = Categorical (nominal)
 
 ## Question 4
 
@@ -88,8 +109,22 @@ The `states` data set can be found in `poliscidata::states`. Take a look at `?st
 ```{r}
 boxplot(states$vep12_turnout)
 plot(density(states$vep12_turnout))
-boxplot(states$cig_tax12)
-plot(density(states$cig_tax12))
-
 
 ```
+
+The density plot of *vep12_turnout* is symmetrical distribution. We know this because most of the values of the variable are appear at a regular frequency.
+
+And we can see no outliers from the boxplot.
+
+```{r}
+boxplot(states$cig_tax12)
+plot(density(states$cig_tax12))
+```
+
+The density plot of *cig_tax12* is positively skewed. When know this because most of values are on the left side of the mean.
+
+And we can see an outlier from the boxplot, above.
+
+\
+
+\
