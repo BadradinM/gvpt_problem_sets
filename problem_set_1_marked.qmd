@@ -1,0 +1,176 @@
+---
+title: "Problem Set 1"
+subtitle: "Due date: 18 September"
+format: 
+  html:
+    self-contained: true
+editor: visual
+execute: 
+  echo: true
+---
+
+Please upload your completed assignment to the ELMs course site (under the assignments menu). Remember to include an annotated script file for all work with R and show your math for all other problems (if applicable, or necessary). Please also upload your completed assignment to the Github repository that you have shared with us. *We should be able to run your script with no errors.*
+
+**Total points: 25**
+
+::: {.callout-tip title="HG comments"}
+Well done. 23/25.
+:::
+
+## Question 1
+
+*Points: 5*
+
+::: {.callout-tip title="HG comments"}
+Correct and good code. 5/5.
+:::
+
+Using the `gss` dataset (which has survey data with the individual respondent as the unit of analysis), create a frequency distribution and bar chart for each of the following variables: `degree` and `partyid_3`. Describe the distribution of each variable in detail.
+
+::: callout-note
+The `gss` dataset can be found in `poliscidata::gss`. Take a look at `?gss` to see what these variables measure.
+:::
+
+```{r}
+library(tidyverse)
+library(poliscidata)
+library(ggplot2)
+ggplot(gss,aes(x = partyid_3))+
+  geom_bar()+
+  labs(x = "Party affiliation")+
+  theme_minimal()
+freq(gss$partyid_3, plot = F)
+```
+
+This variable (partyid_3) has some level of dispersion, the cases are spread evenly across all value of the variable. With Indepedent's acquiring most of the cases at 40%, followed by democrat at 36% and republican at 23%.
+
+::: {.callout-tip title="HG comments"}
+Be a touch more careful with your rounding. For example: 
+
+```{r}
+janitor::tabyl(gss, partyid_3) |> 
+  mutate(percent = scales::percent(percent, accuracy = 1))
+```
+:::
+
+```{r}
+ggplot(gss, aes(x = degree))+
+  geom_bar()+
+  labs(x = "Education Level")+
+  theme_minimal()
+freq(gss$degree, plot = F)
+```
+
+The variable *degree,* has low degree of dispersion. Most of the cases fall under HS at 49%.
+
+## Question 2
+
+Examine the following vector of (fake) student IQ test scores:
+
+```{r}
+iq <- c(
+  145, 139, 126, 122, 125, 130, 96, 110, 118, 118, 101, 142, 134, 124, 112, 109, 
+  134, 113, 81, 113, 123, 94, 100, 136, 109, 131, 117, 110, 127, 124, 106, 124, 
+  115, 133, 116, 102, 127, 117, 109, 137, 117, 90, 103, 114, 139, 101, 122, 105, 
+  97, 89, 102, 108, 110, 128, 114, 112, 114, 102, 82, 101)
+
+```
+
+### Part A
+
+*Points: 5*
+
+::: {.callout-tip title="HG comments"}
+Good use of `skimr::skim()`. 3/5.
+:::
+
+Find the five-number summary, mean, and standard deviation for these data. Also, are there any suspected outliers in the distribution? If so, what are they and how do you know?
+
+```{r}
+skimr::skim(iq)
+hist(iq)
+```
+
+There are no suspected outliers in the distribution. The distribution is Skewed to the left.
+
+::: {.callout-tip title="HG comments"}
+You are correct that there are no outliers within these data; however, we need you to add more on how you know that. What is a good method for detecting outliers? You can look at data points that fall outside of 1.5 times the interquartile range from the median. A boxplot will display this range for you. 
+:::
+
+::: {.callout-tip title="HG comments"}
+The data are not skewed to the left. You can use a smaller bin size to look at the distribution in more detail. In fact, the data are technically slightly skewed to the right. For right skewed data, the mean is greater than the median. For this group, the mean IQ is `r round(mean(iq), 1)` and the median IQ is `r median(iq)`; however, this difference is so small that I would say this is approximately normal (or symmetrical). 
+
+```{r}
+ggplot(tibble(iq = iq), aes(x = iq)) + 
+  geom_histogram(bins = 30)
+```
+:::
+
+Part B
+
+*Points: 5*
+
+::: {.callout-tip title="HG comments"}
+Correct. 5/5.
+:::
+
+In large populations, IQ scores are standardized to have a mean of 100 and a standard deviation of 15. In what way does the distribution among these students differ from the overall population?
+
+The IQ scores have a mean of 114.98 and standard deviation (SD) of 14.8, the mean of the IQ scores of the student is higher than the population mean.
+
+The SD is little lower than the SD for the general population. this shows that the score in the sample are less spread compared to the population.
+
+## Question 3
+
+*Points: 5*
+
+::: {.callout-tip title="HG comments"}
+Correct. 5/5.
+:::
+
+A polling firm is interested in determining how different characteristics of an individual affect vote choice. They record the following characteristics for each survey respondent - race, age, household income, and party affiliation. What "type" of variable does each characteristic most likely represent?
+
+Race = Categorical (nominal)
+
+Age = Continuous
+
+Household income = Continuous
+
+Party affiliation = Categorical (nominal)
+
+## Question 4
+
+*Points: 5*
+
+::: {.callout-tip title="HG comments"}
+Correct. 5/5.
+:::
+
+Using the `states` dataset (the unit of analysis is each U.S. state), generate a box plot and density curve for each of the `vep12_turnout` and `cig_tax12` variables. Describe the distribution of each variable in detail.
+
+::: callout-note
+The `states` data set can be found in `poliscidata::states`. Take a look at `?states` to see what these variables measure.
+:::
+
+```{r}
+boxplot(states$vep12_turnout)
+plot(density(states$vep12_turnout))
+
+```
+
+The density plot of *vep12_turnout* is symmetrical distribution. We know this because most of the values of the variable are appear at a regular frequency.
+
+And we can see no outliers from the boxplot.
+
+```{r}
+boxplot(states$cig_tax12)
+plot(density(states$cig_tax12))
+```
+
+The density plot of *cig_tax12* is positively skewed. When know this because most of values are on the left side of the mean.
+
+And we can see an outlier from the boxplot, above.
+
+\
+
+\
