@@ -130,7 +130,7 @@ augment(regr_lw) |>
   summarise(sum(.resid^2))
 ```
 
-## Question 4
+Question 4
 
 *Points: 5*
 
