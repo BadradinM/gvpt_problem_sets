@@ -26,11 +26,60 @@ Using the `states` data, produce a scatterplot of the variables `womleg_2015` an
 The `states` data set can be found in `poliscidata::states`. Take a look at `?states` to see what these variables measure.
 :::
 
+```{r}
+library(poliscidata)
+library(tidyverse)
+library(ggplot2)
+ggplot(states, aes(x = libpct_m, y = womleg_2015))+
+  geom_point()+
+  geom_smooth(method = "lm", se = F)+
+  labs(x = "Frequency of mass public", y = "Percent of women legislators")+
+  theme_classic()
+cor(states$womleg_2015, states$libpct_m)
+```
+
+This plot is correlated, with a correlation coefficient of 0.60. From the scatter plot we can also see that there are two points that have deviated significantly from the overall pattern, these could be potential outliers. Further examination of the data is needed in order to rule them as outliers or not.
+
+**General equation for the correlation between the IV and DV:**
+
+$$
+r =\sum(x_i-x̄/sx)(yi-ȳ/sy) / n-1
+$$
+
 ## Question 2
 
 *Points: 5*
 
 Regress `womleg_2015` (as the dependent variable) on `libpct_m` and report the results in a professionally formatted table. Write the model equation with the estimated coefficients and interpret them. What does the value of $R^2$ tell us about this model?
+
+```{r}
+library(tidyverse)
+library(poliscidata)
+library(ggplot2)
+library(modelsummary)
+regr_lw <- lm(womleg_2015 ~ libpct_m, data = states)
+regr_lw
+
+modelsummary(
+  regr_lw, 
+  statistic = NULL,
+  coef_rename = c("womleg_2015" = "libpct_m"),
+  gof_map = "nobs"
+)
+```
+
+**Model Equation:**
+
+$$
+womleg_2015=1.5+1.1*libpct_m+e
+$$
+
+```{r}
+glance(regr_lw) |> 
+  select(r.squared)
+```
+
+According to our model, 37.1% of change in our dependent variable, percent of state legislators who are women, can be explained through the change our independent variable, percent of mass public liberal.
 
 ## Question 3
 
@@ -41,6 +90,45 @@ Based on this regression, find the predicted value, the observed value, and comp
 ::: callout-tip
 Think RSS.
 :::
+
+```{r}
+library(tidyverse)
+library(wbstats)
+library(poliscidata)
+library(countrycode)
+library(broom)
+library(janitor)
+library(ggridges)
+library(modelsummary)
+regr_lw
+tidy(regr_lw)
+reg_m_1 <- tidy(regr_lw)
+
+augment(regr_lw)
+
+b_0 <- reg_m_1 |> 
+  filter(term == "(Intercept)") |> 
+  pull(estimate)
+b_0
+
+b_1 <- reg_m_1 |> 
+  filter(term == "libpct_m") |> 
+  pull(estimate)
+b_1
+
+states |> 
+  filter(stateid%in%c("CO    ", "GA    ")) |>
+  select(stateid, libpct_m)
+pd_value <- b_0 + b_1 * 21.67878
+pd_valueGA <- b_0 + b_1 * 17.61538
+
+states |> 
+  filter(stateid%in%c("CO    ", "GA    ")) |>
+  transmute(state,libpct_m, .fitted = b_0 + b_1*libpct_m, diff = libpct_m - .fitted)
+
+augment(regr_lw) |> 
+  summarise(sum(.resid^2))
+```
 
 ## Question 4
 
@@ -56,6 +144,16 @@ The variable `Obama_win12` is a dichotomous indicator of whether Obama won the s
 Please note that you would customarily want a greater number of observations within each cell before conducting such an analysis.
 :::
 
+```{r}
+library(poliscidata)
+library(modelsummary)
+datasummary_crosstab(obama_win12 ~ gun_rank3, data = states)
+```
+
+Among states where obama lost, the majority 75.0% have less gun restrictions, followed by 20.8%, and only 4.2% with more restrictions. Among the states where obama won, majority, 53.8% have more gun restrictions, 34.6% with mid restrictions, and a 11.5% with less restrictions.
+
+It looks like states where obama won in 2012 tend to have more gun restrictions, while states where he lost tend to have fewer gun restrictions. There seems to be a correlation between the extent to gun restriction in a state and Obama's 2012 election. States that Obama won tend to have more gun restriction compared to sates that did not win.
+
 ## Question 5
 
 *Points: 5*
@@ -68,6 +166,24 @@ Table entries are raw counts of observations within each cell.
 
 ![](img/ps2_cross_tab.png)
 
++--------------+------------+-------------+------------+------------+
+| Relig.       | Too little | About Right | Too much   | Total      |
+|              |            |             |            |            |
+| Attendance   |            |             |            |            |
++==============+============+=============+============+============+
+| **Low**      | 342 47.90% | 356 41.59%  | 106 42.74% | 804        |
++--------------+------------+-------------+------------+------------+
+| **Moderate** | 190 26.61% | 213 24.88%  | 51 20.56%  | 454        |
++--------------+------------+-------------+------------+------------+
+| **High**     | 182 25.49% | 287 33.51%  | 91 36.69%  | 560        |
++--------------+------------+-------------+------------+------------+
+| **Total**    | 714 39.29% | 856 47.12%  | 248 13.59% | 1,818 100% |
++--------------+------------+-------------+------------+------------+
+
+Among those with "low" religious attendance, 47.90% believe the federal government provide too little support for scientific research,with moderate at 26.61% and 25.49% for High. And for those who believe the support is "about right" increases, with 41.59% for low attendance, 24.88% for moderate, and 33.51% for high. Finally, of those who believe the federal government provide "too much"" support, decreases. With 42.74% for low attendance, 20.56% for moderate, and 36.69% for high attendance
+
+Based on this, we can infer that, individuals with higher religious attendance are likely to believe that the federal government provides "too much" support for scientific research. And those with lower religious attendance tend to believe that the federal government provides "too little" support. And, as religious attendance increases, the perception of "about right" support for scientific research also increases.
+
 ## Question 6
 
 *Points: 5*
@@ -78,10 +194,38 @@ Say I wish to explore the relationship between the relative advantage of Democra
 
 Create a new variable (i.e., `dem_adv`) based on the `dem_advantage` variable. Calculate the summary statistics of `dem_advantage` and assign the following values to our new variable: if `dem_advantage` is less than the first quartile, set `dem_adv` to `Low`; if the value for `dem_advantage` is greater than the first quartile and less than the third quartile, set the value to `Mid`; and if the value of `dem_advantage` is greater than the third quartile, set the value to `High`.
 
+```{r}
+  library(poliscidata)
+library(modelsummary)
+library(dplyr)
+library(tidyverse)
+st_q <- quantile(states$dem_advantage, 0.25)
+th_q <- quantile(states$dem_advantage, 0.75)
+st_q
+th_q
+states <- states |> 
+  mutate(dem_adv = case_when(
+    dem_advantage < st_q ~ "Low",
+    dem_advantage >= st_q & dem_advantage < th_q ~ "Mid",
+    dem_advantage >= th_q ~ "High"
+  ))
+sum_dem_adv <- summary(states$dem_advantage)
+print(sum_dem_adv)
+
+```
+
 ### Part B
 
 Create a crosstab using R; include your results in a professionally formatted table.
 
+```{r}
+datasummary_crosstab(abort_rank3 ~ dem_adv, data = states)
+```
+
 ### Part C
 
 What relationship (if any) is there between the relative advantage of Democrats is a given state and the restrictiveness of Abortion policy?
+
+Based on the crosstab, among the states with more restriction on abortion, the majority 64.7% fall into the "Mid", followed by "low" 35.3%, and there are no states that fall onto "high". Furthermore, among the states with moderate restriction on abortion, 47.1% fall into "mid",followed by 29.4% in the "Low" and 23.5% in the "High' category. And finally, among the states with less restriction on abortion, a majority 56.2% fall into the 'High', followed by 31.2% in the"Mid" and 12.5% in the "Low" category.
+
+Taken as a whole, states with less restriction on abortion tend to have a higher percentage of a 'High' demographic advantage for Democrats. On the other hand, states with more restriction on abortion have a higher percentage of a 'Mid' demographic advantage. From this analysis, we can see a correlation between the restrictiveness of abortion policies and the demographic advantage for Democrats in states, where states with less restrictive policies tend to have a higher Democratic advantage.
