@@ -35,12 +35,14 @@ ggplot(states, aes(x = libpct_m, y = womleg_2015))+
   geom_smooth(method = "lm", se = F)+
   labs(x = "Frequency of mass public", y = "Percent of women legislators")+
   theme_classic()
+boxplot(states$womleg_2015)
+boxplot(states$libpct_m)
 cor(states$womleg_2015, states$libpct_m)
 ```
 
 This plot is correlated, with a correlation coefficient of 0.60. From the scatter plot we can also see that there are two points that have deviated significantly from the overall pattern, these could be potential outliers. Further examination of the data is needed in order to rule them as outliers or not.
 
-**General equation for the correlation between the IV and DV:**
+**General equation for correlation :**
 
 $$
 r =\sum(x_i-x̄/sx)(yi-ȳ/sy) / n-1
@@ -105,7 +107,6 @@ tidy(regr_lw)
 reg_m_1 <- tidy(regr_lw)
 
 augment(regr_lw)
-
 b_0 <- reg_m_1 |> 
   filter(term == "(Intercept)") |> 
   pull(estimate)
@@ -128,6 +129,20 @@ states |>
 
 augment(regr_lw) |> 
   summarise(sum(.resid^2))
+agg_errorCO <- -4.68
+agg_errorGA <- -4.09
+agg <- agg_errorCO+agg_errorGA
+
+res_co <- -4.688783
+res_ga <- -4.095585
+total_res <- res_co^2 + res_ga^2
+total_res
+
+modelsummary(
+  regr_lw,
+  statistic = NULL,
+  gof_map = c("nobs", "r.squared")
+)
 ```
 
 Question 4
@@ -195,7 +210,7 @@ Say I wish to explore the relationship between the relative advantage of Democra
 Create a new variable (i.e., `dem_adv`) based on the `dem_advantage` variable. Calculate the summary statistics of `dem_advantage` and assign the following values to our new variable: if `dem_advantage` is less than the first quartile, set `dem_adv` to `Low`; if the value for `dem_advantage` is greater than the first quartile and less than the third quartile, set the value to `Mid`; and if the value of `dem_advantage` is greater than the third quartile, set the value to `High`.
 
 ```{r}
-  library(poliscidata)
+library(poliscidata)
 library(modelsummary)
 library(dplyr)
 library(tidyverse)
