@@ -127,12 +127,6 @@ states |>
   filter(stateid%in%c("CO    ", "GA    ")) |>
   transmute(state,libpct_m, .fitted = b_0 + b_1*libpct_m, diff = libpct_m - .fitted)
 
-augment(regr_lw) |> 
-  summarise(sum(.resid^2))
-agg_errorCO <- -4.68
-agg_errorGA <- -4.09
-agg <- agg_errorCO+agg_errorGA
-
 res_co <- -4.688783
 res_ga <- -4.095585
 total_res <- res_co^2 + res_ga^2
