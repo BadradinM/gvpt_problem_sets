@@ -81,7 +81,7 @@ glance(regr_lw) |>
   select(r.squared)
 ```
 
-According to our model, 37.1% of change in our dependent variable, percent of state legislators who are women, can be explained through the change our independent variable, percent of mass public liberal.
+According to our model, 37.1% of change in our dependent variable, percent of state legislators who are women, can be explained through the change our independent variable, percent of mass public liberal
 
 ## Question 3
 
