@@ -1,0 +1,216 @@
+---
+title: "Problem Set 3"
+subtitle: "Due date: 2 October"
+format: 
+  html:
+    self-contained: true
+toc: true
+editor: visual
+execute: 
+  echo: false
+  warning: false
+  message: false 
+---
+
+Please upload your completed assignment to the ELMs course site (under the assignments menu). Remember to include an annotated script file for all work with R and show your math for all other problems (if applicable, or necessary). Please also upload your completed assignment to the Github repository that you have shared with us. *We should be able to run your script with no errors.*
+
+**Total points: 30**
+
+::: {.callout-tip title="HG comments"}
+30/30
+:::
+
+## Question 1
+
+*Points: 10*
+
+::: {.callout-tip title="HG comments"}
+10/10
+:::
+
+Suppose I want to examine the hypothesis that consuming political news coverage from cable network channels (e.g., CNN, MSNBC, Fox News, etc.) causes citizens to have less trust in government than if they were to consume it from mainstream print media (e.g., New York Times, Wall Street Journal, etc.). What is more, suppose that I believe that this effect is greatest among "young" citizens. Design the contours of an experiment to test this proposition (and be sure to sketch the key elements of the experimental design). Second, briefly describe any significant shortcomings that the experimental design might have.
+
+| Variable type | variable            | description                                                 |
+|-------------------|-------------------|-----------------------------------|
+| independent   | news consumption    | cable vs. mainstream                                        |
+|               | age group           | young vs. non-young                                         |
+| dependent     | trust in government | measured in scale (measured before and after experiment)    |
+|               | political awareness | measured in scale to assess participant political awareness |
+| control       |                     | gender, age, education level                                |
+|               | prior knowledge     | previous knowledge of political attitude                    |
+
+**Hypothesis:**
+
+Consuming political news coverage from cable network channels (e.g., CNN, MSNBC, Fox News, etc.) causes citizens to have less trust in government than if they were to consume it from mainstream print media (e.g., New York Times, Wall Street Journal, etc.).
+
+**Sample collection:**
+
+I would use a Simple Random Sample of approximately (e.g 800, depending on pop) and i make sure to include both young (18-30) and older (30-) citizens in the sample. And i would make sure that the sample is disbursed demographically.
+
+**Random group:**
+
+I would divide the sample into three groups: cable, mainstream, controlled group.
+
+**Intervention**:
+
+cable network group - In this group i will set the participant to consume political news from cable network for a certain period, (e.g., one week).
+
+mainstream group - in this group individuals will consume mainstream print media political news for a certain period, (e.g., one week).
+
+control group - this group will be controlled, will not be exposed to any political news.
+
+**Pre-treatment measure**:
+
+In this pre-treatment procedure, i will measure (scale) the participants baseline trust in government using a questionnaire. I will ask simple questions like, the type of news/media the individuals consumes, how long they consume.
+
+**Post-treatment:**
+
+After the treatment, i will measure (e.g scale) the participants level of trust in government using a questionnaire.
+
+**Analysis:**
+
+After the experiment, i will compare the pre-treatment" and "post-treatment" scores of the different groups to see if impact of media sources have on individual trust in government
+
+**Shortcomings:**
+
+One of the major shortcomings of this experiment would be external validity, because of the nature of the design, generezability will be limited because of the different media consumption habits individuals have. Another shortcoming include, media bias. The biases in the media content may influence the participants perception and trust in government. Other shortcomings also include, individuals pre-existing preferences or knowledge towards a particular media channel. this may have a a potential impact and might skrew the outcome.
+
+## Question 2
+
+*Points: 10*
+
+::: {.callout-tip title="HG comments"}
+8/10
+:::
+
+Below are four hypothetical research designs to determine the effects of democratic governance on the funding of educational institutions. Briefly evaluate each sampling design in terms of its: (1) sampling variability; and, (2) sources of potential bias.
+
+A.  A sample of educational funding levels for every country in Europe for each of the last 100 years.
+
+**Variability:**
+
+Low variability because the sample covers every country in Europe.
+    
+::: {.callout-tip title="HG comments"}
+Correct.
+:::
+
+**Potential bias:**
+
+The sample only focus on Europe, this might not account for events that might have affected educational funding. So, for one, this can not be generazible and because the sample looks at data over that last 100 years, the data accuracy might be different.
+    
+::: {.callout-tip title="HG comments"}
+Correct.
+:::
+
+B.  A sample of educational funding levels in five randomly picked countries drawn from the global population of countries for each of the last 10 years.
+
+**Variability:**
+
+this sample has high variability because the five selected countries may represent globe.
+
+::: {.callout-tip title="HG comments"}
+Correct.
+:::
+
+**Potential bias:**
+
+Although this sample has high variability because of the five random countries, still, this might over or under represent the globe. Also because the sample only views trends over the last 10 years, this might not capture longer trends.
+
+::: {.callout-tip title="HG comments"}
+The random selection ensures no bias. 
+:::
+
+C.  A survey of educational administrators that yields responses that allow for a comparison of educational funding levels in Russia and the United States for the six-year period from 2010 to 2015.
+
+**Variability:**
+
+High variability. Although it does not include other countries, and because it only focuses on Russia and U.S and only on educational administrators, its variability is high.
+
+::: {.callout-tip title="HG comments"}
+This will have low sampling variability. If we were to survey all educational administrators in these countries many times, we should get very similar responses every time. 
+:::
+
+**Potential bias:**
+
+potential bias might include response bias, participants might have personal biases. Also, selection bias, because the sample only include educational administrators, randimization might be missing, some individuals might be included some might not. Finally, non-response bias, those who choose to particpate in the sruvey miight have choosen only because of they have certain views than those who didnt particpate.
+
+::: {.callout-tip title="HG comments"}
+Correct. Also worth thinking about whether Russia is representative of all non-democracies and if the US is representative of all democracies. 
+:::
+
+D.  A sample of 75 randomly selected countries' educational funding levels for each of the past 25 years.
+
+**Variability:**
+
+I think this has moderate variability because the sample include a good number of countries and a decent time period. But depending on which countries i captures, there might be variability. For example, if the countries are not geographically, culturally, and economically diverse then there will be variability
+    
+::: {.callout-tip title="HG comments"}
+Correct. But randomness and large sample size should account for this.
+:::
+
+**Potential bias:**
+
+Potential bias could be over or underrepresentation. if the sample randomly include countries within one geographic location, i.e., Europe then it will likely contain bias. At the same time, if the sample only included democratic countries, for example, then there could be bias also.
+
+::: {.callout-tip title="HG comments"}
+The random selection should account for this. 
+:::
+
+## Question 3
+
+*Points: 10*
+
+::: {.callout-tip title="HG comments"}
+10/10
+:::
+
+Using the `hanmerKalkanANES` dataset (posted on ELMs), construct a cross-tab with `presvote` (dichotomous variable coded with a value label) as the dependent variable and `ageCategorical` (1 = 18-30; 2 = 31-40; 3 = 41-50; 4 = 51-60; and 5 = 61-over) as the independent variable. Create a table with the cross-tab results and interpret them -- i.e., what is the apparent association, if any, between age and U.S. presidential vote in 2004?
+
+::: {.callout-tip title="HG comments"}
+Please avoid hard coding file paths into your scripts (for example: `~/Library/Mobile Documents/com~apple~CloudDocs/Académico/6. PhD/0. R/Problems_set 2023-2/Problems_sets/hanmerKalkanANES.RData`). This causes an error when someone else tries to render your script. Instead, use `here::here()`.  
+:::
+
+```{r}
+library(rio)
+library(modelsummary)
+library(tidyverse)
+library(rio)
+library(dplyr)
+load(here::here("hanmerKalkanANES.RData"))
+
+x <- x |>
+  mutate(ageCategorical =case_when(
+    age >= 18 & age <= 30 ~ "1",
+    age >= 31 & age <= 40 ~ "2",
+    age >= 41 & age <= 50 ~ "3",
+    age >= 51 & age <= 60 ~ "4",
+    age >= 61 ~ "5"
+  ))
+datasummary_crosstab(presvote ~ ageCategorical, data = x)
+```
+
+Based on the crosstab we can see that of those who voted for Kerry the majority 29.4% are ages 61 and older, 22.5% ages between 18-30, and finally 16% range between ages 31 and 60. For Bush, the majority are also ages 61 and older at 23%, those ages 51-60 only averaged 22.4%, 20.4% ages 41-50, and with 15 and 18% are ages 18 - 40.
+
+From this we can infer that there is a correlation between age and U.S president vote of the 2004. Older individuals appear more likely to vote, with both candidates receiving the majority of their support from those aged 61 and older. However, there's a noticeable difference in the younger demographic: Kerry garnered 22.5% of votes from the 18-30 age group, whereas Bush received a slightly lower 15.8%."
+
+\
+Next, what is:
+
+A.  The conditional distribution of respondents who are 41-50 that voted for Kerry?
+
+    ```{r}
+    x |>
+      summarize(prob = sum(ageCategorical == "3" & presvote == "Kerry", na.rm = TRUE)/sum(ageCategorical == "3", na.rm =TRUE))
+    ```
+
+    the conditional distribution for Kerry is .42. this tells us that 42% of respondent in the age group of 41-50 voted for Kerry
+
+B.  The conditional distribution of respondents who are 41-50 that voted for Bush?
+
+    ```{r}
+    x |>
+      summarize(prob = sum(ageCategorical == "3" & presvote == "Bush", na.rm = TRUE)/sum(ageCategorical == "3", na.rm =TRUE))
+    ```
+
+    the conditional distribution for Bush is .57. this tells us that 57% of respondent in the age group of 41-50 have voted for Bush.
