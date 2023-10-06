@@ -142,7 +142,7 @@ summary(ages1)
 
 If the median ages of ten people is 50, that means the ages are not that far apart from each other. Hypothetically, if we say the ages are 35, 33, 39, 49, 50, 51, 52, 55, 58, and 60. And if we put the ages in ascending order, the median would be 50 in this case
 
-But If the 40 year old person leaves the room and that person is from the first four or the last four group, the median would still be around 50. So, theoretically, we can confirm what will happen to the renaming nine people without having the real ages of the people.
+But If the 40 year old person leaves the room and that person is from the first four or the last four group, the median would still be around 50. So, theoretically, we can confirm what will happen to the renaming nine people without having the real ages of the people
 
 ### Question 8
 
