@@ -20,11 +20,43 @@ Please upload your completed assignment to the ELMs course site (under the assig
 
 Suppose I am playing poker with a regular deck of 52 cards. I have three cards in my hand, one of which is a king. What is the probability that the next two cards I draw will both be kings?
 
+= 52 deck
+
+= 3 cards in hand
+
+P (1st king) = 3/51
+
+P (2nd king) = 2/50 = 1/25
+
+P (1st and 2nd king) = 3/51 \* 1/25
+
+P (1st and 2nd king) = 3/1275 = 1/425
+
+the probability that the next two cards I draw will both be king is 1/425 (0.24%)
+
 ## Question 2
 
 *Points: 5*
 
 A survey of 1,500 randomly selected individuals reveals that 46% of them have a college degree and that 31% of them have a gun in their house. If you were to assume that college graduation and gun ownership are independent of one another, what is the probability that an individual is both a college graduate and does not have a gun in his or her house?
+
+=1,500 sample
+
+=46% have college degree
+
+=31% have gun
+
+P (degree) = .46
+
+P (no gun) = 1 - 0.31 = 0.69
+
+P(college and no gun) = P (college) x p(no gun)
+
+P(college and no gun) = 0.46 x 0.69 = 0.31
+
+P (college and no gun) = 0.31
+
+There are 31% chance that individual is a both college graduate and does not have gun
 
 ## Question 3
 
@@ -32,14 +64,76 @@ A survey of 1,500 randomly selected individuals reveals that 46% of them have a 
 
 I roll a fair six-sided dice and I get a number greater than three. What is the probability that the next two dice rolls will also generate numbers greater than three?
 
+The event in this case are independent of each other
+
+=3/6 = 1/2
+
+P (1st roll \> 3) = 1/2
+
+P (2nd roll \> 3) = 1/2
+
+P (1st roll \>3 and 2nd roll \>3) = P(1st roll \>3) x P(2nd roll \>3)
+
+P (1st roll \>3 and 2nd roll \>3) = 1/2 x 1/2 = 1/4
+
+there is 1/4 (25%) probability that the next two dice will both be greather that three
+
 ## Question 4
 
 *Points: 10*
 
 Assume that in the United States, 15% of people are smokers and, of smokers, 60% smoke at least one pack a day. Among those who smoke at least a pack a day, 60% will develop lung cancer at some point in their lives while, in the rest of the population (which includes smokers who smoke less than a pack a day and non-smokers), only 10% will. What is the probability that a person who develops lung cancer was a smoker who smoked at least a pack a day?
 
+= 15% smokers
+
+= 60% smoke pack a day
+
+= 60% will develop lung cancer
+
+= 10% will develop lunch cancer, given that they do not smoke a pack
+
+P (smoker) = 0.15
+
+P (Smoke a pack ) = 0.60
+
+P (smokers/develop lunch cancer) = 0.60
+
+P (develop lung/do not smoke pack) = 0.10
+
+P (smoke a pack) = P (smokers) x P(smokers/develop lunch cancer) = 0.15 x 0.60 = 0.09
+
+P (smoke pack and lung cancer) = 1−0.09=0.91
+
+= 0.60×0.09=0.054
+
+= 0.10×0.91=0.091
+
+= =0.054+0.091=0.145
+
+= 0.054/0.145 = 0.37
+
+the probability that a person who develops lung cancer was a smoker who smoked at least a pack a day is 37%
+
 ## Question 5
 
 *Points: 5*
 
 Assume that in the world, 60% of countries are democracies and 80% of countries have ratified the Rome Statute for the International Criminal Court. Assume further that 90% of democracies have ratified the Rome Accords. What is the probability that a country is either a democracy or has ratified the Rome Accords?
+
+= 60% democracies
+
+= 80% ratified the Rome statute
+
+= 90% of democracies have ratified the Rome accords
+
+P ( democracies) = .60
+
+P (ratified the rome statue) = .80
+
+P (democracies have ratified the statue) = .90
+
+P (democracy or ratified the statue) = 0.60 + 0.80 - 0.54
+
+P (democracies or ratified the rome ) = 0.86
+
+the probability that a country is either a democracy or has ratified the Rome Accords is 86%
