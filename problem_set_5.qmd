@@ -38,11 +38,42 @@ tibble::tibble(
 
 What is the probability of being 25-30 or a non-voter?
 
+P(A or B)=P(A)+P(B)-P(A and B)
+
+P(A)= 25-30 = 90/1000 = 0.09
+
+P(B) = non voter = 330/1000 = 0.33
+
+P(A and B)= 40/1000 = 0.04
+
+P (A or B) = 0.09 + 0.033 - 0.04
+
+P A or B) = 0.038
+
 ### Part B
 
 *Points: 4*
 
 Assuming a normal distribution, report the 95% confidence intervals for the percentage of 18-to-24-year-olds who did not vote, and then the percentage of 25-to-30-year-olds who did not vote.
+
+```{r}
+
+ci <- function(p, n) {
+  se <- sqrt(p*(1-p)/n) 
+  lower_range <- p - 1.96*se
+  upper_range <- p + 1.96*se
+  return(c(lower_range, upper_range))
+}
+p_18_24 <- 70/120
+ci_18_24 <- ci(p_18_24, 120)
+
+p_25_30 <- 40/90
+ci_25_30 <- ci(p_25_30, 90)
+```
+
+```{r}
+list(ci_18_24 = ci_18_24, ci_25_30 = ci_25_30)
+```
 
 ## Question 2
 
@@ -56,11 +87,31 @@ Assume that the standard deviation for the population distribution of a state in
 
 Calculate the spread of the sampling distribution for each of the following sample sizes: 1, 4, 25, 100, 250, 1000, 5,000, and 10,000.
 
+```{r}
+sd <- 200 
+sample_dis <- c(1, 4, 25, 100, 250, 1000, 5000, 10000)
+se <- sd / sqrt(sample_dis)
+
+data.frame(Sample_distribution =sample_dis, Standard_error = se)
+```
+
+**n = 1**
+
+$SE = \frac{200}{\sqrt{1}}=200$
+
+**n =4**
+
+$SE = \frac{200}{\sqrt{4}}=100$
+
+\`\`\`
+
 ### Part B
 
 *Points: 1*
 
 Describe specifically how the variability of the sampling distribution changes as the sample size varies. Considering the expense of running a poll, which sample size do you think is most optimal if conducting the poll?
+
+From this case, we can see that there is an inverse relationship. We can see that as the sample size goes up the standard error goes down. this means as we draw larger samples, the sample distribution of the n becomes less variable.
 
 ### Part C
 
@@ -68,11 +119,42 @@ Describe specifically how the variability of the sampling distribution changes a
 
 Display your results graphically (using R) with the sample size on the x-axis and the standard error (of the sampling distribution) on the y-axis.
 
+```{r}
+library(ggplot2)
+
+sample_sizes <- c(1, 4, 25, 100, 250, 1000, 5000, 10000)
+pop_sd <- 200
+s_error <- pop_sd / sqrt(sample_sizes)
+
+
+df <- data.frame(sample_sizes, s_error)
+p <- ggplot(df, aes(x=sample_sizes, y=s_error)) +
+  geom_line() +
+  geom_point() +
+  scale_x_log10(breaks = sample_sizes, labels = sample_sizes) + 
+  labs(title="Standard Error by Sample Size",
+       x="Sample Size",
+       y="Standard Error") +
+  theme_classic()
+print(p)
+```
+
 ## Question 3
 
 *Points: 4*
 
 Suppose you conduct a survey (to generate a sample mean of interest) and find that it has a margin of error of 4.5 with a sample size of 900 using a 95% confidence interval. What would the margin of error be for a 90% confidence interval?
+
+```{r}
+zs_95 <- 1.96
+me_95 <- 4.5
+zs_90 <- 1.645
+
+se <- me_95/zs_95
+zs_90*se
+```
+
+The MOE for 90% confident interval is 3.7
 
 ## Question 4
 
@@ -84,8 +166,81 @@ Assume that, in State A, the mean income in the population is \$20,000 with a st
 Assume a normal distribution for both questions.
 :::
 
-## Question 5
+n = 900
+
+$SE=\frac{2000}{\sqrt{900}}=\frac{2000}{{30}}= 66.6$\$
+
+$\ Z = \frac{20200 - 20,000}{66.6}=3$
+
+P (x̄\>= 20200) = 1 - 0.9987
+
+P (x̄ \>= 20200) = 0.0013
+
+```{r}
+avg_income <- 20000
+sd <- 2000
+
+n_900 <- 900
+se_900 <- sd / sqrt(n_900)
+z_900 <- (20200 - avg_income) / se_900
+p_900 <- 1 - pnorm(z_900)  
+
+data.frame(probability_900 = p_900)
+
+```
+
+```{r}
+n_25 <- 25
+se_25 <- sd / sqrt(n_25)
+z_25 <- (20200 - avg_income) / se_25
+p_25 <- 1 - pnorm(z_25)
+data.frame(probability_25 = p_25)
+```
+
+Question 5
 
 *Points: 4*
 
 Assume that a coin is fair. If I flip a coin 500 times, what is a 95% confidence interval for the range of the count of heads that I will get? What if I flip the coin 5,000 times? What about 50,000 times?
+
+```{r}
+n_500 <- 500
+p_500 <- 0.5
+
+z_500 <- qnorm(0.975)
+
+
+ci_95_500 <- c(p_500 -z_500 * sqrt(p_500 *(1 - p_500)/ n_500),
+               p_500 + z_500 * sqrt(p_500 * (1 - p_500)/ n_500))
+
+
+print(ci_95_500)
+```
+
+```{r}
+n_5000 <- 5000
+p_5000 <- 0.5
+
+z_5000 <- qnorm(0.975)
+
+
+ci_95_5000 <- c(p_5000 -z_5000 * sqrt(p_5000 *(1 - p_5000)/ n_5000),
+               p_5000 + z_5000 * sqrt(p_5000 * (1 - p_5000)/ n_5000))
+
+
+print(ci_95_5000)
+```
+
+```{r}
+n_50000 <- 50000
+p_50000 <- 0.5
+
+z_50000 <- qnorm(0.975)
+
+
+ci_95_50000 <- c(p_50000 -z_50000 * sqrt(p_50000 *(1 - p_50000)/ n_50000),
+               p_50000 + z_50000 * sqrt(p_50000 * (1 - p_50000)/ n_50000))
+
+print(ci_95_50000)
+
+```
