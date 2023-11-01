@@ -1,0 +1,359 @@
+---
+title: "Problem Set 6"
+subtitle: "Due date: 30 October"
+format: 
+  html:
+    self-contained: true
+toc: true
+editor: visual
+execute: 
+  echo: true
+---
+
+Please upload your completed assignment to the ELMs course site (under the assignments menu). Remember to include an annotated script file for all work with R and show your math for all other problems (if applicable, or necessary). Please also upload your completed assignment to the Github repository that you have shared with us. *We should be able to run your script with no errors.*
+
+**Total points: 40**
+
+```{r}
+library(tidyverse)
+library(poliscidata)
+```
+
+## Question 1
+
+*Points: 10*
+
+::: {.callout-tip}
+10/10
+:::
+
+I hypothesize that the mean mathematics SAT score for University of Maryland students is different than 600. I take an SRS of 625 students and find that the mean mathematics score among those students is 610. The standard deviation of my sample is 75.
+
+### Part A
+
+::: {.callout-tip}
+2/2
+:::
+
+Based on my sample, what is a point estimate for the mean mathematics SAT score for University of Maryland students?
+
+the point estimate here is 610.
+
+### Part B
+
+::: {.callout-tip}
+2/2
+:::
+
+What is a 95% confidence interval around that estimate?
+
+s mean = 610
+
+sd = 75
+
+n = 625
+
+SE
+
+SE = 75/ √625 = 75/25 =3
+
+MOE
+
+1.96 x 3= 5.88
+
+Lower bound: x̄ - MOE = 610 - 5.88 = 604.12
+
+Upper bound: x̄ + MOE = 610 + 5.88 = 615. 88
+
+the 95% CI is 604.12, 615.88)
+
+### Part C
+
+::: {.callout-tip}
+2/2
+:::
+
+What is the null hypothesis?
+
+The null say that the mathematics SAT score for UMD student is 600
+
+### Part D
+
+::: {.callout-tip}
+2/2
+:::
+
+What is the two-tailed p-value and what does it mean?
+
+$z=\frac{610-600}{\frac{75}{\sqrt{625}}}=3.33$
+
+z-value of 3.33 is 0.0004
+
+degrees of freedom = n -1 = 624
+
+Using a t-table, a t-value of 3.33 with 624 degrees of freedom give us a two-tail p-value of .00092
+
+a small p-value tells us that if the true population mean were 600, it would be very unlikely to observe a sample mean like 610 or more just by random chance. So we would reject the null and conclude that conclude that there's enough evidence to suggest that the mean mathematics SAT score for University of Maryland students is indeed different than 600.\
+
+### Part E
+
+::: {.callout-tip}
+2/2
+:::
+
+Do the data support my hypothesis? Why, or why not?
+
+Because we have a small p-value of 00092, we can reject the null because our data strongly support the hypothesis. P-values less than 0.05 suggest a evidence for the hypothesis.
+
+## Question 2
+
+*Points: 10*
+
+::: {.callout-tip}
+10/10
+:::
+
+I take an SRS of 900 citizens in a public opinion survey and find that the mean feeling thermometer rating (on a 0 to 100 scale) of President Biden is 51.5 with a standard deviation of 25. Now, suppose I hypothesize that feelings toward Biden should be greater than 50.
+
+### Part A
+
+::: {.callout-tip}
+2/2
+:::
+
+What is the null hypothesis?
+
+The null says, the mean feeling thermometer rating for President Biden is 50
+
+### Part B
+
+::: {.callout-tip}
+4/4
+:::
+
+What is a 95% confidence interval around the sample statistic? Does this interval indicate support for a two-tailed test of my hypothesis (`p < 0.05` as the threshold)? Why, or why not?
+
+95% CI:
+
+s mean = 51.5
+
+sd = 25
+
+n = 900
+
+SE:
+
+SE = 25/√900 = 0.83
+
+MOE:
+
+1.96 x 0.83 = 1.63
+
+Upper bound: x̄ - MOE = 51.5 - 1.63 = 49.86
+
+Upper bound: x̄ + MOE = 51.5 + 1.63 = 53.13
+
+The 95% CI is (49.86, 53.13). this means that we are 95% confident that the true population mean feeling thermometer rating for President Biden lies between 49.8647 and 53.1353.
+
+For a two-tailed test with a p-value \< 0.05 this does not provide evidence to reject the null because 50 lies with the intervals
+
+### Part C
+
+::: {.callout-tip}
+4/4
+:::
+
+What is a 90% confidence interval around the sample statistic? Does this interval indicate support for a one-tailed test of my hypothesis (`p < 0.05` as the threshold)? Why, or why not?
+
+SE = 0.83
+
+MOE = 1.645 x 0.83 = 1.37
+
+Upper bound: x̄ - MOE = 51.5 - 1.37 = 50.12
+
+Upper bound: x̄ + MOE = 51.5 + 1.37 = 52.87
+
+The 90% CI is 50.12, 52.87
+
+For a one-tailed test with p value \< 0.05 this provides some evidence to reject the null. The evidence is not very strong because 50 is very close to the lower bound.
+
+## Question 3
+
+*Points: 5*
+
+::: {.callout-tip}
+5/5
+:::
+
+Suppose I conduct a difference of means test and obtain a t-statistic of 2.50. What does this indicate about the statistical significance of the sample mean compared to the null hypothesis?
+
+A t-statistic of 2.50 indicates that the sample mean is 2.50 standard errors away from the population mean hypothesized under the null. And the significant of this t-statistic is usally depends on the degree of the freedom and the signifcant level. If the magnitude exceeds the t-value for the degrees of freedom and significanes level we would reject the null suggesting that there is a significant difference between the sample mean and the population mean. if not then we would fail to reject the null.
+
+## Question 4
+
+*Points: 5*
+
+::: {.callout-tip}
+3.5/5
+:::
+
+I hypothesize that fewer than 40% of registered voters approve of President Biden. I conduct an SRS of 720 registered voters and find that 37.9% of them approve of President Biden.
+
+### Part A
+
+::: {.callout-tip}
+1/1
+:::
+
+Based on my sample, what is a point estimate for the proportion of the population that approves of President Biden?
+
+the point estimate for the proportion of the population that approves of president Biden is 37.9%
+
+### Part B
+
+::: {.callout-tip}
+1/1
+:::
+
+What is a 90% confidence interval around that estimate?
+
+sample proportion = 37.9%
+
+n = 720
+
+```{r}
+#sample proportion, sample size, and z-score
+s_prop <- 0.379
+s_size <- 720
+CI90 <- 0.90
+z_score <- qnorm((1 + CI90) / 2)
+
+## SE
+se <- sqrt((s_prop * (1 - s_prop)) / s_size)
+se
+## MOE
+moe <- z_score * se
+moe
+## CI
+lower_bound <- s_prop - moe
+upper_bound <- s_prop + moe
+CI <- c(lower_bound,upper_bound)
+CI
+```
+
+The 90% CI is 0.34, 0.40
+
+### Part C
+
+::: {.callout-tip}
+1/1
+:::
+
+What is the null hypothesis?
+
+the null says the proportion of voters that approve is 40%
+
+### Part D
+
+::: {.callout-tip}
+0.5/1
+:::
+
+What is the one-tailed p-value and what does it mean?
+
+z =0.37-0.40/sqrt(0.40(1-9.40)/720
+
+z = -0.021/0.01825733
+
+z= -1.15-223
+
+```{r}
+p_value <- pnorm(-1.150223)
+p_value
+```
+
+::: {.callout-tip}
+Correct. What does this mean? 
+:::
+
+### Part E
+
+::: {.callout-tip}
+0/1
+:::
+
+Do the data support my hypothesis? Why, or why not?
+
+Yes. with a one-tailed we get a p-value of 0.125 giving us strong evidence for our hypothesis.
+
+::: {.callout-tip}
+No, a p-value of 0.125 tells us that there is a 12.5% chance that we would observe a statistic of 0.379 or less when, in fact, the true value is 0.4. We only usually accept a 5% chance that we would observe the statistic given the null hypothesis were true. 
+:::
+
+## Question 5
+
+*Points: 5*
+
+::: {.callout-tip}
+5/5
+:::
+
+I hypothesize that in countries where Islam is the predominate religious group, women have a greater number of children on average (i.e., the total fertility rate is higher). Use the `world` dataset to test my hypothesis. State the null hypothesis and interpret what the results tell us about the null and alternative hypotheses. Be sure to show all work necessary to find the answer (i.e., you may use R to assist you, but you should show the necessary computations by hand).
+
+::: callout-note
+The `world` data set can be found in `poliscidata::world`.
+:::
+
+The null says, the mean total fertility rate in countries where Islam is the predominant religious group is equal to the mean total fertility rate in countries where Islam is not the predominant religious group
+
+```{r}
+library(poliscidata)
+library(dplyr)
+library(tidyverse)
+countries <- world  |> 
+  mutate(religions = ifelse(religoin == "Muslim", "Muslim", "non_Muslim"))
+
+muslim_countries <- countries  |> 
+  filter(religions %in% c("Muslim"))  |> 
+  select(religions, fertility)
+
+no_muslim_countries <- countries %>%
+  filter(religions %in% c("non_Muslim"))  |> 
+  select(religions, fertility)
+
+#Mean
+m_mean <- mean(muslim_countries$fertility, na.rm = TRUE)
+non_m_mean <- mean(no_muslim_countries$fertility, na.rm = TRUE)
+
+m_mean
+non_m_mean
+
+#Variance
+muslim_var <- var(muslim_countries$fertility, na.rm = TRUE)
+non_muslim_var <- var(no_muslim_countries$fertility, na.rm = TRUE)
+
+#observation
+muslim_n <- length(na.omit(muslim_countries$fertility))
+non_muslim_n <- length(na.omit(no_muslim_countries$fertility))
+
+#t-value 
+t_value <- (m_mean - non_m_mean) / sqrt((muslim_var/muslim_n) + (non_muslim_var/non_muslim_n))
+t_value
+
+
+p_hat <- 46/167
+p_0_1 <-119/167
+n_religion <- 167
+
+# t-test
+z_test_stat_1 <- (p_hat - p_0_1) / sqrt(p_0_1 * (1 - p_0_1) / n_religion)
+
+# p-value
+p_value <- pnorm(z_test_stat_1)
+
+cat("One-tailed p-value:", p_value)
+
+```
+
+Interpretation:\
+Based on these result. we can say that the data support our hypothesis. Our p-value is 0.46 statistically significant, giving us evidence to reject the null.
