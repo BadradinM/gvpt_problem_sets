@@ -28,11 +28,37 @@ Make a cross-tab, by hand, of the relationship between these two variables based
 
 ![](img/PS7.png)
 
++------------+----------------+--------------+---------------+------------+
+| **Age**    | **Not at all** | **Somewhat** | **Very much** | **Total**  |
++============+================+==============+===============+============+
+| 21-35      | 5              | 6            | 1             | 12         |
+|            |                |              |               |            |
+|            | 41.7%          | 50%          | 8.3%          |            |
++------------+----------------+--------------+---------------+------------+
+| 36-50      | 1              | 5            | 3             | 9          |
+|            |                |              |               |            |
+|            | 11.1%          | 55.6%        | 33.3%         |            |
++------------+----------------+--------------+---------------+------------+
+| 51-65      | 2              | 2            | 4             | 8          |
+|            |                |              |               |            |
+|            | 28.5%          | 28.6%        | 57.1%         |            |
++------------+----------------+--------------+---------------+------------+
+| 66-plus    | 3              | 4            | 4             | 11         |
+|            |                |              |               |            |
+|            | 27.3%          | 36.4%        | 36.4%         |            |
++------------+----------------+--------------+---------------+------------+
+| Total      | 11             | 17           | 12            | 40         |
++------------+----------------+--------------+---------------+------------+
+
 ### Part B
 
 *Points: 2*
 
 Do the data support my hypothesis? Be sure to explain the nature of the relationship (or lack thereof, if relevant).
+
+**Ho:** That the older someone is, the more they like watching golf
+
+The data suggest that the hypothesis is correct. We can see that the proportion of people who enjoy watching golf "very much" does seem to increase with age, going from 8.3% in the 21-35 age group to 57.1% in the 51-65 age group. And the proportion of people who do not enjoy watching golf at all "not at all" generally decreases with age, dropping from 41.7% in the 21-35 age group to 11.1% in the 36-50 age group. Also, there seem to be inconsistency in the pattern when we consider the age group 66-Plus. The proportion of people who enjoy watching golf "very much" drops to 36.4%, which is less than the 51-65 age group but still higher than the younger age groups. The data does show trend that could suppor the hypothesis and the relationship is not strictly linear or consistent across all age groups.\
 
 ### Part C
 
@@ -40,11 +66,47 @@ Do the data support my hypothesis? Be sure to explain the nature of the relation
 
 Compute (by hand) the chi-square statistic to test the null hypothesis of no relationship between these two variables. Be sure to show your work.
 
+**Expected:**
+
++------------+----------------------+---------------------+---------------------+------------+
+| **Age**    | **Not at all**       | **Somewhat**        | **Very much**       | **Total**  |
++============+======================+=====================+=====================+============+
+| 21-35      | (12 \* 11)/ 40 = 3.3 | (12\* 17)/ 40 = 5.1 | (12\* 12)/ 40 = 3.6 | 12         |
+|            |                      |                     |                     |            |
+|            | Chi = 0.87           | Chi = 0.15          | Chi = 1.8           |            |
++------------+----------------------+---------------------+---------------------+------------+
+| 36-50      | (9\*11)/40 = 2.47    | (9\* 17)/ 40 = 3.8  | (9\*12)/40 = 2.7    | 9          |
+|            |                      |                     |                     |            |
+|            | Chi = 0.87           | Chi= 0.5            | Chi= 0.03           |            |
++------------+----------------------+---------------------+---------------------+------------+
+| 51-65      | (8\*11)/40 = 2.2     | (8\*17)/40 = 3.4    | (8\*12)/40 = 2.4    | 8          |
+|            |                      |                     |                     |            |
+|            | Chi= 0.01            | Chi= 0.5            | Chi= 1.0            |            |
++------------+----------------------+---------------------+---------------------+------------+
+| 66-plus    | (11\*11)/40 = 3.0    | (11\*17)/40 = 4.67  | (11\*12)/40 = 3.3   | 11         |
+|            |                      |                     |                     |            |
+|            | Chi= 0.02            | Chi= 0.09           | Chi= 0.15           |            |
++------------+----------------------+---------------------+---------------------+------------+
+| Total      | 11                   | 17                  | 12                  | 40         |
++------------+----------------------+---------------------+---------------------+------------+
+
+Chi:
+
+$\frac{\left(5-3.3\right)^{2}}{3.3}=0.87$
+
+$\frac{\left(6-5.1\right)^{2}}{5.1}=0.15$
+
+$\frac{\left(1-3.6\right)^{2}}{3.6}=1.8$
+
+Total = summed all the total = 6
+
 ### Part D
 
 *Points: 2*
 
 Using the chi-square statistic that you computed in question 1(c), can you reject the null hypothesis of no relationship between these two variables with 95% confidence? Why, or why not?
+
+With 6 degrees of freedom, the critical value of Chi at the 0.05 confident interval level is 12.59 since we calculate the chi value at 6 is less than the value cricial value of 12.59. so we do not have sufficient evidence to reject the null at 95% confident interval. So there is no relationship between age and watching golf on based on this data on a 95% CI.
 
 ## Question 2
 
@@ -53,3 +115,21 @@ Using the chi-square statistic that you computed in question 1(c), can you rejec
 I hypothesize that people who identify as more liberal are less likely to see gun control as an important issue than people who identify as more conservative. Using the `nes` dataset from the `poliscidata` package, create a cross-tab examining the effect of someone's self-identification as liberal or conservative, measured using the variable `libcon3` variable, and their indication of how important gun access is to them as an issue, measured using the `gun_importance3` variable.
 
 Do the data support my hypothesis? Be sure to explain the nature of the relationship (or lack thereof, if relevant). Report a chi-square statistic (it is fine to have R generate the statistic and p-value). What does the chi-square statistic tell you about whether you can reject the null hypothesis of no relationship between these two variables with 95% confidence? Why, or why not?
+
+```{r}
+library(poliscidata)
+library(modelsummary)
+datasummary_crosstab(libcon3 ~ gun_importance3, data = nes)
+```
+
+```{r}
+chisq.test(nes$libcon3, nes$gun_importance3)
+```
+
+0.0000000004
+
+**Ho:** people who identify as more liberal are less likely to see gun control as an important issue than people who identify as more conservative
+
+Among the respondents, a higher proportion of liberals view gun control as 'More important' compared to conservatives, which contradicts the hypothesis. Instead of liberals being less likely to see gun control as an important issue, they are actually more likely than conservatives to do so
+
+Our p-value is very small (4.11e-08), it allows us to reject the null with high degree of confidence. Our data do not support the original hypothesis. Instead, they show that liberals are more likely to view gun control as an important issue compared to conservatives, and this relationship is statistically significant.
