@@ -496,7 +496,7 @@ datasummary_crosstab(Voted_2016 ~ Relig_imp, data = nes_data)
 
 *2 points*
 
-Using these data, what is the point estimate for the proportion of respondents that voted (i.e., turnout rate), among citizens expressing that religion is not important? What is the point estimate for the proportion of respondents that voted, among citizens expressing that religion matters a great deal?
+Using these data, what is the point estimate for the proportion of respondents that voted (i.e., turnout rate), among citizens expressing that religion is not important? What is the point estimate for the proportion of respondents that voted, among citizens expressing that religion matters a great deal?.
 
 ```{r}
 not_important_did_not_vote <- 297
