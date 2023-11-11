@@ -339,7 +339,7 @@ gss <- read_csv("gss.csv") |>
 datasummary_crosstab(vote12 ~ conarmy, data = gss)
 ```
 
-$H_a$**:** Among only those that were eligible to vote, people with greater confidence in the U.S. military were more likely to turnout to vote in the 2012 presidential election.
+$H_a$**:** Among only those that were eligible to vote, people with greater confidence in the U.S. military were more likely to turnout to vote in the 2012 presidential election..
 
 Based on the data, of those who voted, 52.8% had "a great deal" of confidence in the military. In contrast, of those who did not vote, 51.8% had "a great deal" of confidence. This suggest that there is a slightly higher proportion of voters with "a great deal" of confidence in the military among those who voted compared to those who did not vote. With these numbere, there does seem to be a trend that support the hypothesis --- greater confidence in the military is associated with a higher likelihood of voting. Yet, the evidence is not strong enough to conclusively support the hypothesis without a further analysis
 
