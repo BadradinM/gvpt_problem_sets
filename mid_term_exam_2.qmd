@@ -1,0 +1,551 @@
+---
+title: "Mid-term Exam #2"
+subtitle: "Due date: 10 November"
+format: 
+  html:
+    self-contained: true
+toc: true
+editor: visual
+execute: 
+  echo: true
+  message: false
+  warning: false
+---
+
+Please read all of the questions carefully and follow all instructions. Each question has an allotted point value. Be as thorough and specific as possible; extra calculations and incorrect information, even in the presence of correct information, will result in point deductions. Be sure to show all formulas and all necessary work to answer the questions. You may upload your completed exam to the Elms course site (attach to Midterm Exam #2).
+
+::: callout-note
+While this is an open-note exam, you are not to receive assistance from anyone else (as usual, the Honor Code applies).
+:::
+
+**Total points: 50 points**
+
+## Conceptual questions
+
+::: callout-note
+Please include all work (and computations) necessary to answer the questions.
+:::
+
+**Total points: 26**
+
+### Question 1
+
+*2 points*
+
+Suppose I am interested in determining if freshman undergraduates at the University of Maryland spend more hours studying in the average week than sophomore undergraduates. I conduct a study in which I take a simple random sample (SRS) of 1200 freshman students and 1200 sophomore students. I find that the freshman students in my sample study for, on average, 412 minutes per week and the sophomore students in my sample study for, on average, 335 minutes per week. The standard error of the difference is 30. What is a 90% confidence interval for the difference between freshman and sophomore students?
+
+Difference in mean:
+
+412-335 = 77
+
+Z Score:
+
+90% CI z score = 1.645
+
+Standard error:
+
+30 minutes
+
+Margin of Error:
+
+1.645 x 30 = 49.35
+
+Confident Interval:
+
+Lower bound: 77 - 49.35 = 27.65
+
+Upper bound: 77 + 49.35 = 126.35
+
+The 90% CI is 27.65, 126.35, this means that we are 90% confident that the true difference in study time between freshman and sophomre is between 27.65 and 126.35
+
+### Question 2
+
+*2 points*
+
+Based on the results of my study described in question 1, can you reject the null hypothesis of no statistically meaningful difference in the study habits of sophomore and freshman students? Why or why not?
+
+$H_o:$ There is no differences in average study time between the two groups. this means the differnce is 0 minute
+
+Based on our 90% confident interval (27.65, 126.35) we can reject the null with strong confident. The null states that the difference is 0, however, our interval shows that its between 27.65, 126.35 Because 0 is not within our calculated interval we have evidence that the average study time is not the same for the two groups. Therefore, we can reject the null hypothesis that there is no difference (or that the difference is zero
+
+### Question 3
+
+*2 points*
+
+If I am testing a null hypothesis that X has no effect on Y in the population (and thus my alternative hypothesis is that X does have an effect), why might I prefer to commit a Type-II error over a Type-I error (and, of course, this holds aside my first preference of making no error at all)? Answer in no more than two sentences.
+
+In this case a type II error is likely to be committed. Which is failing to reject a false null, over a type-I error, which is incorrectly rejecting a true null. The consequence of acting on a belief that X has affect on Y when it does not could be more serious than the consequence of failing to detect a real effect.
+
+### Question 4
+
+*1 point*
+
+When conducting a difference-of-means test, which of the following samples would yield a sampling distribution with the lowest variability?
+
+A.  **A sample of 900 with a standard deviation of 15**
+B.  A sample of 25 with a standard deviation of 10
+C.  A sample of 625 with a standard deviation of 20
+D.  A sample of 100 with a standard deviation of 6
+
+A because it has the largest sample size, which reduces the standard error, and thus the variability of the sampling distribution
+
+### Question 5
+
+*1 point*
+
+Which of the following probabilities is not independent?
+
+A.  The probability that the roulette wheel will end up on 23 two times in a row.
+B.  The probability that three successive coin tosses will each turn up heads.
+C.  **The probability that I draw an ace and then a king in a row from a deck of cards (when drawing a two-card hand).**
+D.  The probability that I will get a 6 on three subsequent die rolls.
+E.  None of the above -- all are independent probabilities.
+
+C because the outcome of the first draw affects the outcome of the second draw.
+
+### Question 6
+
+*1 point*
+
+I conduct a two-tailed difference-of-means test and obtain a t-statistic of 2.10. Is my result statistically significant (with 95% confidence)?
+
+A.  Yes, at the 0.05 level (p\<0.05)
+B.  Yes, but only at the 0.10 level (p\<0.10)
+C.  Not at either the 0.05 or the 0.10 level
+D.  **There is not enough information to answer this question.**
+
+D because without the degrees of freedom or the sample size we cannont conclude that the t-statisic of 2.10 is significant at the 90% CI
+
+### Question 7
+
+*1 point*
+
+I take a sample of 1800 adults and find that 360 of them watched last Monday's NFL game. What probability represents the complement to the sample proportion of adults who watched the NFL game?
+
+P = 360/1800 = 0.2
+
+1 - 0.2 = 0.8
+
+0.8 or 80% is the probability that represents the complement to the sample proportion of adults who watched the NFL game
+
+### Question 8
+
+*1 point*
+
+Which of the following makes it more likely that a given sample statistic will be statistically different from zero (and thus allow you to reject the null hypothesis, all else equal)?
+
+A.  **More observations**
+B.  Greater variance in the sample
+C.  Using a two-tailed instead of a one-tailed significance test
+D.  A larger confidence interval around the test statistic
+E.  Both (a) and (b) (but not (c) or (d))
+F.  All of the above increase the chances of statistical significance
+G.  None of the above
+
+### Question 9
+
+*1 point*
+
+The p-value for a two-tailed test of the null hypothesis $H_0: \mu=40$ is 0.06. Which of the following statements is accurate?
+
+A.  A 95% confidence interval around the sample mean includes the value 40
+B.  **A 90% confidence interval around the sample mean includes the value 40**
+C.  A 99% confidence interval around the sample mean does not include the value 40
+D.  None of the above statements are correct
+E.  All of the above statements are correct
+
+### Question 10
+
+*4 points total*
+
+#### Part A
+
+*2 points*
+
+If you roll a fair (six-sided) die twice, what is the probability that both rolls will be odd or greater than four?
+
+Odd number: 1,3,5
+
+Numbers greater than four: 5,6
+
+Prob of one roll:
+
+P (roll one) = 4/6 = 2/3
+
+P (two roll) = P (roll one) P (roll one)
+
+P (two rolls) = (2/3)2 = 4/9
+
+4/9 = 0.44
+
+The probability that both rolls of will be odd or greater than four is .44 (44.44%)
+
+#### Part B
+
+*2 points*
+
+The following is a distribution of U.S. college students classified by their age and full- vs. part-time status. Based on these data, what is the probability that a student is in the 25-29 age group, given that (i.e., conditional on knowledge that) the student is full time?
+
+```{r}
+tibble::tibble(
+  age = c("15 - 19", "20 - 24", "25 - 29", "30+"),
+  full_time = c(155, 255, 75, 35),
+  part_time = c(20, 55, 80, 95)
+) |> 
+  knitr::kable()
+```
+
+P (A) = student in 25-29
+
+P (B) = full-time student
+
+Total number of full-time student = 520
+
+Conditional Prob:
+
+P (A/B) = P(A and B)/P(B)
+
+P(A/B) 57/520 = 0.1442
+
+the probability that a student is in the 25-29 age group, given that they are full-time, is approximately 14.42%.
+
+### Question 11
+
+*4 points total*
+
+#### Part A
+
+*2 points*
+
+Using a SRS of 1211 people, I estimate that the proportion of people living in the South that favor teaching sexual education in public schools is 0.874 and the proportion of people outside of the south that favor teaching sexual education in public schools is 0.906. And, the standard error of the difference (in citizen views about teaching sexual education in public schools) between people living in the south and those not living in the south is 0.015. Give an interval estimate for the difference in the proportion of people favoring sex education in public schools between people who do, and do not, live in the south.
+
+Answer:
+
+```{r}
+p1 <- 0.874
+p2 <- 0.906
+SE <- 0.015
+
+# Z-score for a 95% confidence interval
+z_score <- 1.96
+
+#  the difference in proportions
+difference <- p1 - p2
+
+#  the margin of error for the 95% confidence interval
+margin_of_error <- z_score * SE
+
+#  the confidence interval
+lower_bound <- difference - margin_of_error
+upper_bound <- difference + margin_of_error
+
+# Output the confidence interval
+data.frame(lower_bound, upper_bound)
+```
+
+With 95% confidence, the difference in the proportion of people favoring sex education in public schools between those who live in the South and those who do not is approximately between -0.0026 and -0.0614
+
+#### Part B
+
+*2 points*
+
+Do the data (i.e., estimates above) show support for my hypothesis? How do you know?
+
+From our estimates (-0.0026 and -0.0614), the data does provide evidence to support the hypothesis. The null says the differences in proportion is zero. however, our estimate is -0.0026, -0.0614 which gives us evidence to reject the null. There is a statistically significant difference in the proportion of people favoring sex education in public schools between these two groups.
+
+### Question 12
+
+*6 points total*
+
+I am interested in estimating the average number of texts that University of Maryland undergraduate students send in a day. My hypothesis is that the average number of texts students send is greater than 100. I take a SRS of 1600 students and find that the mean number of texts they send is 105, and with a standard deviation of 120.
+
+#### Part A
+
+*2 points*
+
+What is a 95% confidence interval around the sample statistic?
+
+Standard error:
+
+SE = 120/ √1600 = 3
+
+MOE:
+
+1.96 x 3 = 5.88
+
+CI:
+
+Upper bound: 105 - 5.88 = 99.12\
+Lower bound: 105 + 5.88 = 110.88
+
+The 95% confident interval is 99.12,110.88. This indicate that we are 95% confident that the true
+
+#### Part B
+
+*2 points*
+
+When testing the null hypothesis, what is the test statistic associated with the sample statistic?
+
+$t=\frac{105-100}{\frac{120}{\sqrt{1600}}}=1.67$
+
+#### Part C
+
+*2 points*
+
+If using a one-tailed test of the null hypothesis and you are willing to accept a Type-I error rate of 0.05, do the data support my hypothesis? Why or why not?
+
+```{r}
+# the p-value for the one-tailed test
+z_test_statistic <- 1.67
+p_value <- 1 - pnorm(z_test_statistic)
+
+print(p_value)
+
+```
+
+Since your p-value of 0.047, it indicates that the data provide enough evidence to reject the null at the 5% significance level. Therefore, the data support the hypothesis that the average number of texts sent by UMD undergraduate students is greater than 100 per day. The result is statistically significant, but just barely; it's close to the threshold.
+
+## Applied questions
+
+::: callout-note
+All datasets referenced below are available through the course elms page. Do note use the `poliscidata` package for these questions, as the specific variables referenced are not all included in that package.
+:::
+
+**Total points: 24**
+
+### Question 1
+
+*8 points total*
+
+I hypothesize that, among only those that were eligible to vote, people with greater confidence in the U.S. military were more likely to turnout to vote in the 2012 presidential election. Use data from the General Social Survey (i.e., the `gss` dataset) to test my hypothesis (the unit of analysis is the individual survey respondent). Specifically, use the following variables: `conarmy` (1 = a "great deal" of confidence; 2 = "only some" confidence; 3 = "hardly any"); and `vote12` (1 = voted; 2 = did not vote; 3 = ineligible). Answer the following questions.
+
+#### Part A
+
+*3 points*
+
+Complete a cross-tab and interpret the results. Do the data support my hypothesis? Be sure to explain the nature of the relationship (or lack thereof, if relevant).
+
+```{r}
+library(tidyverse)
+library(dplyr)
+library(modelsummary)
+library(readr)
+gss <- read_csv("gss.csv") |>
+  select(conarmy,vote12) |> 
+  drop_na() |> 
+  mutate(vote12 = factor(vote12, levels = c(1,2,3), labels = c ("Voted", "Did not Vote", "Ineligble"))) |> 
+  mutate(conarmy = factor(conarmy, levels = c(1,2,3), labels = c("Great deal", "Only some", "Hardly any")))
+
+datasummary_crosstab(vote12 ~ conarmy, data = gss)
+```
+
+$H_a$**:** Among only those that were eligible to vote, people with greater confidence in the U.S. military were more likely to turnout to vote in the 2012 presidential election.
+
+Based on the data, of those who voted, 52.8% had "a great deal" of confidence in the military. In contrast, of those who did not vote, 51.8% had "a great deal" of confidence. This suggest that there is a slightly higher proportion of voters with "a great deal" of confidence in the military among those who voted compared to those who did not vote. With these numbere, there does seem to be a trend that support the hypothesis --- greater confidence in the military is associated with a higher likelihood of voting. Yet, the evidence is not strong enough to conclusively support the hypothesis without a further analysis
+
+Part B
+
+*3 points*
+
+Compute (by hand) the chi-square statistic to test the null hypothesis of no relationship between these two variables. Be sure to show your work.
+
+```{r}
+library(infer)
+library(modelsummary)
+chisq.test(gss$conarmy,gss$vote12)
+```
+
++------------------+---------------------------------------------+---------------------------------------------+-------------------------------------------+------------+
+| **vote12**       | Great Deal                                  | Only Some                                   | Hardly Any                                | **Total**  |
++==================+=============================================+=============================================+===========================================+============+
+| **Voted**        | Observed: 642, Expected: 638.90, Chi: 0.015 | Observed: 498, Expected: 483.82, Chi: 0.415 | Observed: 75, Expected: 92.28, Chi: 3.24  | 1215       |
+|                  |                                             |                                             |                                           |            |
+|                  |                                             |                                             |                                           | 3.67       |
++------------------+---------------------------------------------+---------------------------------------------+-------------------------------------------+------------+
+| **Did Not Vote** | Observed: 278, Expected: 282.37, Chi: 0.067 | Observed: 208, Expected: 213.83, Chi: 0.15  | Observed: 51, Expected: 40.78, (Chi: 2.56 | 537        |
+|                  |                                             |                                             |                                           |            |
+|                  |                                             |                                             |                                           | 2.78       |
++------------------+---------------------------------------------+---------------------------------------------+-------------------------------------------+------------+
+| **Ineligible**   | Observed: 77, Expected: 75.72, Chi: 0.021   | Observed: 49, Expected: 57.13, Chi: 1.2     | Observed: 18, Expected: 10.94, Chi: 4.56  | 144        |
+|                  |                                             |                                             |                                           |            |
+|                  |                                             |                                             |                                           | 5.79       |
++------------------+---------------------------------------------+---------------------------------------------+-------------------------------------------+------------+
+| Total            | 997                                         | 755                                         | 144                                       | 1896       |
+|                  |                                             |                                             |                                           |            |
+|                  |                                             |                                             |                                           | 12.2       |
++------------------+---------------------------------------------+---------------------------------------------+-------------------------------------------+------------+
+
+#### Part C
+
+*2 points*
+
+Using the chi-square statistic that you computed in question 1(b), can you reject the null hypothesis of no relationship between these two variables with 95% confidence? Why, or why not?
+
+With a chi-square statistic of 12.2 and 4 degrees of freedom, the critical value for rejection is 9.48 with the 95% confidence. Since 12.2 is greater than 9.49, it rejects the null hypothesis at the 0.05 sinificance level.
+
+### Question 2
+
+*8 points total*
+
+I hypothesize that citizens who do not support fracking are less conservative than those who do support fracking. Use data from the `nes` dataset to test my hypothesis (the unit of analysis is the individual survey respondent). Specifically, use the following variables: `fracking` (1 = "approve" of fracking; 2 = "middle"; 3 = "disapprove"); and `libcon7` (higher values represent less liberalism, or more conservatism). Answer the following questions.
+
+```{r}
+library(tidyverse)
+library(modelsummary)
+library(dplyr)
+nes <- read_csv("nes.csv")
+nes_data <- nes |> 
+  select(fracking,libcon7) |> 
+  drop_na() |> 
+  mutate(fracking = factor(fracking, levels = c(1,2,3), labels = c("Approve", "Middle", "Disapprove")))
+datasummary_crosstab(libcon7 ~ fracking, data = nes_data)
+```
+
+#### Part A
+
+*2 points*
+
+Using these data, what is the point estimate for the mean conservatism/liberalism score among those that disapprove of fracking? What is the point estimate for the mean conservatism/liberalism score among those that approve of fracking?
+
+```{r}
+disapprove_freq <- c(120, 331, 340, 328, 291, 144, 24)
+approve_freq <- c(3, 25, 76, 117, 227, 268, 88)
+
+# libcon7 scores
+scores <- 1:7
+
+#  the mean score for the disapprove group
+mean_disapprove <- sum(disapprove_freq * scores) / sum(disapprove_freq)
+
+# the mean score for the approve group
+mean_approve <- sum(approve_freq * scores) / sum(approve_freq)
+
+data.frame(mean_disapprove,
+mean_approve)
+```
+
+The point estimate for the mean conservatism/liberalism score among those who disapprove of fracking is 3.5 \
+The point estimate for the mean conservatism/liberalism score among those who approve of fracking is 5.10
+
+#### Part B
+
+*6 points*
+
+Evaluate the null hypothesis that there is no difference in the mean conservatism/liberalism score among those that approve vs. disapprove of fracking. Do the data support my hypothesis? Why or why not? Be sure to show all work necessary to answer the question by hand (i.e., you may only use R to the extent that is absolutely necessary to complete the question; otherwise, you must show how you would answer the question by hand).
+
+$H_a:$ There is a difference in the mean conservatism/liberalism score between those who approve and disapprove of fracking
+
+$H_o:$ There is no difference in the mean conservatism/liberalism score between those who approve and disapprove of fracking.
+
+```{r}
+nes <- read_csv("nes.csv")
+nes_data <- nes |> 
+  select(fracking,libcon7) |> 
+  drop_na()
+
+m_approve <- 5.109453   
+m_disapprove <- 3.54943
+
+# standard deviations
+sd_approve <- 1.274507
+sd_disapprove <- 1.49118
+
+#  sample sizes
+n_approve <- 804
+n_disapprove <- 1578
+
+#  pooled standard deviation
+sd_pooled <- sqrt(((n_disapprove - 1) * sd_disapprove^2 + (n_approve - 1) * sd_approve^2) / (n_disapprove + n_approve - 2))
+
+#  the standard error for the difference in means
+SE <- sd_pooled * sqrt(1/n_disapprove + 1/n_approve)
+
+# the t-statistic for the difference in means
+difference_in_means <- m_disapprove - m_approve
+t_stat <- difference_in_means / SE
+
+# Degrees of freedom
+df <- n_approve + n_disapprove - 2
+
+# two-tailed p-value
+p_value2 <- 2 * pt(-abs(t_stat), df)
+
+print(t_stat)
+print(df)
+print(p_value2)
+```
+
+Because we have a small p-value, which is much less than any 0.05 significance level we reject the null hypothesis. This provides very strong evidence against the null hypothesis, supporting the alternative hypothesis that there is a statistically significant difference in the mean conservatism/liberalism scores between those who approve and those who disapprove of fracking.
+
+## Question 3
+
+*8 points total*
+
+I hypothesize that people who express that religion is important to them were more likely to turnout to vote in the 2016 presidential election. Use data from the `nes` dataset to test my hypothesis (the unit of analysis is the individual survey respondent). Specifically, use the following variables: `Relig_imp` (0 = not important; 1 = somewhat important; 2 = quite a bit; 3 = a great deal); and `Voted_2016` (0 = did not vote; 1= voted). Answer the following questions.
+
+```{r}
+nes <- read_csv("nes.csv")
+nes_data <- nes |> 
+  select(Relig_imp,Voted_2016) |> 
+  drop_na() |> 
+  mutate(Relig_imp = factor(Relig_imp, levels = c(0,1,2,3), labels = c("Not Important","Somewhat Important","Quite a bit", "Great Deal")))
+datasummary_crosstab(Voted_2016 ~ Relig_imp, data = nes_data)
+```
+
+#### Part A
+
+*2 points*
+
+Using these data, what is the point estimate for the proportion of respondents that voted (i.e., turnout rate), among citizens expressing that religion is not important? What is the point estimate for the proportion of respondents that voted, among citizens expressing that religion matters a great deal?
+
+```{r}
+not_important_did_not_vote <- 297
+not_important_voted <- 971
+great_deal_did_not_vote <- 234
+great_deal_voted <- 995
+
+total_not_important <- not_important_did_not_vote + not_important_voted
+total_great_deal <- great_deal_did_not_vote + great_deal_voted
+
+#  point estimates for each group
+point_estimate_not_important <- not_important_voted / total_not_important
+point_estimate_great_deal <- great_deal_voted / total_great_deal
+
+data.frame(point_estimate_not_important,
+point_estimate_great_deal)
+```
+
+#### Part B
+
+*6 points*
+
+Evaluate the null hypothesis that there is no difference in the proportion of voters (i.e., turnout rate) among citizens expressing that religion is not important vs. those reporting that religion matters a great deal. Do the data support my hypothesis? Why or why not? Be sure to show all work necessary to answer the question by hand (i.e., you may only use R to the extent that is absolutely necessary to complete the question; otherwise, you must show how you would answer the question by hand).
+
+```{r}
+prop_1 <- 0.7658
+prop_2 <- 0.8096
+n1 <- 1268
+n2 <- 1229
+
+# Standard deviations for each proportion
+sd_prop_1 <- sqrt(prop_1 * (1 - prop_1) / n1)
+sd_prop_2 <- sqrt(prop_2 * (1 - prop_2) / n2)
+
+# Standard error of the difference in proportions
+se <- sqrt(sd_prop_1^2 + sd_prop_2^2)
+
+# Difference in proportions
+difference_in_proportions <- prop_1 - prop_2
+
+# Z-statistic for the difference in proportions
+z_statistic <- difference_in_proportions / se
+
+# Two-tailed p-value for the z-statistic
+p_value <- 2 * (1 - pnorm(abs(z_statistic)))
+
+print(z_statistic)
+print(p_value)
+
+```
+
+Given that the p-value is less than 0.05, we can reject the null. This result supports the alternative hypothesis that there is a statistically significant difference in the proportion of voters who turned out in the 2016 presidential election between those who express that religion is not important and those who express that religion is a great deal important. the negative z-statistic indicates that the proportion favoring sexual education in public schools is lower among people living in the South compared to those living outside the South
