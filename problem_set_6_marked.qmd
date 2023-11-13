@@ -99,10 +99,6 @@ a small p-value tells us that if the true population mean were 600, it would be 
 
 2\*pt
 
-to get the p value for your t-test
-
-Part E
-
 ::: callout-tip
 2/2
 :::
