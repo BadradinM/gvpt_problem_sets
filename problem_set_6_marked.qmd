@@ -23,7 +23,7 @@ library(poliscidata)
 
 *Points: 10*
 
-::: {.callout-tip}
+::: callout-tip
 10/10
 :::
 
@@ -31,7 +31,7 @@ I hypothesize that the mean mathematics SAT score for University of Maryland stu
 
 ### Part A
 
-::: {.callout-tip}
+::: callout-tip
 2/2
 :::
 
@@ -41,7 +41,7 @@ the point estimate here is 610.
 
 ### Part B
 
-::: {.callout-tip}
+::: callout-tip
 2/2
 :::
 
@@ -67,9 +67,11 @@ Upper bound: x̄ + MOE = 610 + 5.88 = 615. 88
 
 the 95% CI is 604.12, 615.88)
 
+we are 95% confident the pop mean sits between 604,615
+
 ### Part C
 
-::: {.callout-tip}
+::: callout-tip
 2/2
 :::
 
@@ -79,7 +81,7 @@ The null say that the mathematics SAT score for UMD student is 600
 
 ### Part D
 
-::: {.callout-tip}
+::: callout-tip
 2/2
 :::
 
@@ -95,9 +97,13 @@ Using a t-table, a t-value of 3.33 with 624 degrees of freedom give us a two-tai
 
 a small p-value tells us that if the true population mean were 600, it would be very unlikely to observe a sample mean like 610 or more just by random chance. So we would reject the null and conclude that conclude that there's enough evidence to suggest that the mean mathematics SAT score for University of Maryland students is indeed different than 600.\
 
-### Part E
+2\*pt
 
-::: {.callout-tip}
+to get the p value for your t-test
+
+Part E
+
+::: callout-tip
 2/2
 :::
 
@@ -109,7 +115,7 @@ Because we have a small p-value of 00092, we can reject the null because our dat
 
 *Points: 10*
 
-::: {.callout-tip}
+::: callout-tip
 10/10
 :::
 
@@ -117,7 +123,7 @@ I take an SRS of 900 citizens in a public opinion survey and find that the mean 
 
 ### Part A
 
-::: {.callout-tip}
+::: callout-tip
 2/2
 :::
 
@@ -127,7 +133,7 @@ The null says, the mean feeling thermometer rating for President Biden is 50
 
 ### Part B
 
-::: {.callout-tip}
+::: callout-tip
 4/4
 :::
 
@@ -159,7 +165,7 @@ For a two-tailed test with a p-value \< 0.05 this does not provide evidence to r
 
 ### Part C
 
-::: {.callout-tip}
+::: callout-tip
 4/4
 :::
 
@@ -181,7 +187,7 @@ For a one-tailed test with p value \< 0.05 this provides some evidence to reject
 
 *Points: 5*
 
-::: {.callout-tip}
+::: callout-tip
 5/5
 :::
 
@@ -193,7 +199,7 @@ A t-statistic of 2.50 indicates that the sample mean is 2.50 standard errors awa
 
 *Points: 5*
 
-::: {.callout-tip}
+::: callout-tip
 3.5/5
 :::
 
@@ -201,7 +207,7 @@ I hypothesize that fewer than 40% of registered voters approve of President Bide
 
 ### Part A
 
-::: {.callout-tip}
+::: callout-tip
 1/1
 :::
 
@@ -211,7 +217,7 @@ the point estimate for the proportion of the population that approves of preside
 
 ### Part B
 
-::: {.callout-tip}
+::: callout-tip
 1/1
 :::
 
@@ -245,7 +251,7 @@ The 90% CI is 0.34, 0.40
 
 ### Part C
 
-::: {.callout-tip}
+::: callout-tip
 1/1
 :::
 
@@ -255,7 +261,7 @@ the null says the proportion of voters that approve is 40%
 
 ### Part D
 
-::: {.callout-tip}
+::: callout-tip
 0.5/1
 :::
 
@@ -272,13 +278,15 @@ p_value <- pnorm(-1.150223)
 p_value
 ```
 
-::: {.callout-tip}
-Correct. What does this mean? 
+::: callout-tip
+Correct. What does this mean?
 :::
+
+there is 12.50 chance that we cwould overse this sample prop or smaller if the null ho were true. this we well beyond ourdefine threhold of a 5% chance that we would oberseve the stat
 
 ### Part E
 
-::: {.callout-tip}
+::: callout-tip
 0/1
 :::
 
@@ -286,15 +294,15 @@ Do the data support my hypothesis? Why, or why not?
 
 Yes. with a one-tailed we get a p-value of 0.125 giving us strong evidence for our hypothesis.
 
-::: {.callout-tip}
-No, a p-value of 0.125 tells us that there is a 12.5% chance that we would observe a statistic of 0.379 or less when, in fact, the true value is 0.4. We only usually accept a 5% chance that we would observe the statistic given the null hypothesis were true. 
+::: callout-tip
+No, a p-value of 0.125 tells us that there is a 12.5% chance that we would observe a statistic of 0.379 or less when, in fact, the true value is 0.4. We only usually accept a 5% chance that we would observe the statistic given the null hypothesis were true.
 :::
 
 ## Question 5
 
 *Points: 5*
 
-::: {.callout-tip}
+::: callout-tip
 5/5
 :::
 
@@ -352,7 +360,6 @@ z_test_stat_1 <- (p_hat - p_0_1) / sqrt(p_0_1 * (1 - p_0_1) / n_religion)
 p_value <- pnorm(z_test_stat_1)
 
 cat("One-tailed p-value:", p_value)
-
 ```
 
 Interpretation:\

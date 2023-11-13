@@ -51,7 +51,7 @@ cor(states$womleg_2015, states$libpct_m)
 This plot is correlated, with a correlation coefficient of 0.60. From the scatter plot we can also see that there are two points that have deviated significantly from the overall pattern, these could be potential outliers. Further examination of the data is needed in order to rule them as outliers or not.
 
 ::: {.callout-tip title="HG comments"}
-It would be good to include a description of the shape of the scatterplot. Do you see a positive or negative relationship? Are the points tightly clustered or more spread out? 
+It would be good to include a description of the shape of the scatterplot. Do you see a positive or negative relationship? Are the points tightly clustered or more spread out?
 :::
 
 **General equation for correlation :**
@@ -61,7 +61,7 @@ r =\sum(x_i-x̄/sx)(yi-ȳ/sy) / n-1
 $$
 
 ::: {.callout-tip title="HG comments"}
-Correct, but you can fill in some of these details. You can find and include the mean for `libpct_m` ($\bar{x}$) and for `womleg_2015` ($\bar{y}$). You can also find the standard deviations of these two variables. 
+Correct, but you can fill in some of these details. You can find and include the mean for `libpct_m` ($\bar{x}$) and for `womleg_2015` ($\bar{y}$). You can also find the standard deviations of these two variables.
 :::
 
 ## Question 2
@@ -91,7 +91,7 @@ modelsummary(
 ```
 
 ::: {.callout-tip title="HG comments"}
-A professionally formatted table will include variable labels that are easy to interpret. Recommend renaming `libpct_m`. 
+A professionally formatted table will include variable labels that are easy to interpret. Recommend renaming `libpct_m`.
 :::
 
 **Model Equation:**
@@ -101,11 +101,11 @@ womleg_2015=1.5+1.1*libpct_m+e
 $$
 
 ::: {.callout-tip title="HG comments"}
-The question asks you to interpret the coefficients. 
+The question asks you to interpret the coefficients.
 
-When zero percent of the mass public of a state identify as Liberal, you predict that the percentage of that state's legislature that identify as a woman will be `r tidy(regr_lw) |> filter(term == "(Intercept)") |> pull(estimate) |> round(2)` percent on average. 
+When zero percent of the mass public of a state identify as Liberal, you predict that the percentage of that state's legislature that identify as a woman will be `r tidy(regr_lw) |> filter(term == "(Intercept)") |> pull(estimate) |> round(2)` percent on average.
 
-For every one percentage point increase in the percent of the mass public of a state that identify as Liberal, you predict that the percentage of a state's legislature that identify as a woman will increase by `r tidy(regr_lw) |> filter(term == "libpct_m") |> pull(estimate) |> round(2)` percentage points on average. You needed to include direction in your interpretation. 
+For every one percentage point increase in the percent of the mass public of a state that identify as Liberal, you predict that the percentage of a state's legislature that identify as a woman will increase by `r tidy(regr_lw) |> filter(term == "libpct_m") |> pull(estimate) |> round(2)` percentage points on average. You needed to include direction in your interpretation.
 :::
 
 ```{r}
@@ -130,7 +130,7 @@ Think RSS.
 :::
 
 ::: {.callout-tip title="HG comments"}
-Remember to check your rendered document to make sure that it is easy to read. I cannot see your comments in the rendered document, so I can't tell what these values refer to. No worries. Just make sure to check next time. 
+Remember to check your rendered document to make sure that it is easy to read. I cannot see your comments in the rendered document, so I can't tell what these values refer to. No worries. Just make sure to check next time.
 :::
 
 ```{r}
@@ -180,7 +180,7 @@ modelsummary(
 ```
 
 ::: {.callout-tip title="HG comments"}
-Almost! The residual is calculated by subtracting the predicted value from the observed value of the dependent variable. You have calculated the distance of your predicted value for `womleg_2015` from the observed value of `libpct_m`.  
+Almost! The residual is calculated by subtracting the predicted value from the observed value of the dependent variable. You have calculated the distance of your predicted value for `womleg_2015` from the observed value of `libpct_m`.
 :::
 
 ## Question 4
@@ -241,12 +241,12 @@ Table entries are raw counts of observations within each cell.
 | **Total**    | 714 39.29% | 856 47.12%  | 248 13.59% | 1,818 100% |
 +--------------+------------+-------------+------------+------------+
 
-Among those with "low" religious attendance, 47.90% believe the federal government provide too little support for scientific research,with moderate at 26.61% and 25.49% for High. And for those who believe the support is "about right" increases, with 41.59% for low attendance, 24.88% for moderate, and 33.51% for high. Finally, of those who believe the federal government provide "too much"" support, decreases. With 42.74% for low attendance, 20.56% for moderate, and 36.69% for high attendance
+Among those with "low" religious attendance, 47.90% believe the federal government provide too little support for scientific research,with moderate at 26.61% and 25.49% for High. And for those who believe the support is "about right" increases, with 41.59% for low attendance, 24.88% for moderate, and 33.51% for high. Finally, of those who believe the federal government provide "too much"" support, decreases. With 42.74% for low attendance, 20.56% for moderate, and 36.69% for high attendance.
 
 Based on this, we can infer that, individuals with higher religious attendance are likely to believe that the federal government provides "too much" support for scientific research. And those with lower religious attendance tend to believe that the federal government provides "too little" support. And, as religious attendance increases, the perception of "about right" support for scientific research also increases.
 
 ::: {.callout-tip title="HG comments"}
-Your phrasing suggests that you would be better off calculating the proportions within the religious attendance categories (ie across the rows rather than down the columns). This would allow you to make the conditional statement that, among those who reported that they rarely attend religious services (of which there are 804), they tended to report that the government spends too little (342, or `r scales::percent(342/804)`) or about the right amount (356, or `r scales::percent(356/804)`) on scientific research. 
+Your phrasing suggests that you would be better off calculating the proportions within the religious attendance categories (ie across the rows rather than down the columns). This would allow you to make the conditional statement that, among those who reported that they rarely attend religious services (of which there are 804), they tended to report that the government spends too little (342, or `r scales::percent(342/804)`) or about the right amount (356, or `r scales::percent(356/804)`) on scientific research.
 :::
 
 ## Question 6
@@ -292,7 +292,7 @@ datasummary_crosstab(abort_rank3 ~ dem_adv, data = states)
 ```
 
 ::: {.callout-tip title="HG comments"}
-Make sure your order categorical variables match their underlying order: low, mid, then high. 
+Make sure your order categorical variables match their underlying order: low, mid, then high.
 :::
 
 ### Part C

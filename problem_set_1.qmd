@@ -44,7 +44,7 @@ ggplot(gss, aes(x = degree))+
 freq(gss$degree, plot = F)
 ```
 
-The variable *degree,* has low degree of dispersion. Most of the cases fall under HS at 49%.
+The variable *degree,* has low degree of dispersion. Most of the cases fall under HS at 49%
 
 ## Question 2
 

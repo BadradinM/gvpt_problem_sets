@@ -23,7 +23,7 @@ library(tidyverse)
 
 *Total points: 6*
 
-::: {.callout-tip}
+::: callout-tip
 4/6
 :::
 
@@ -45,7 +45,7 @@ tibble::tibble(
 
 *Points: 2*
 
-::: {.callout-tip}
+::: callout-tip
 2/2
 :::
 
@@ -63,7 +63,7 @@ P (A or B) = 0.09 + 0.033 - 0.04
 
 P A or B) = 0.038
 
-::: {.callout-tip}
+::: callout-tip
 Small typo above. Answer is 0.38.
 :::
 
@@ -71,7 +71,7 @@ Small typo above. Answer is 0.38.
 
 *Points: 4*
 
-::: {.callout-tip}
+::: callout-tip
 2/4
 :::
 
@@ -96,20 +96,20 @@ ci_25_30 <- ci(p_25_30, 90)
 list(ci_18_24 = ci_18_24, ci_25_30 = ci_25_30)
 ```
 
-::: {.callout-tip} 
+::: callout-tip
 The probability that an individual is 18-to-24 and a non-voter is not conditional. Therefore, you look at the proportion of the whole population who meet those criteria.
 
 $$
 \hat{p} = Pr(18\ to\ 24 \& NV) = \frac{70}{1000} = 0.07 
 $$
 
-And: 
+And:
 
 $$
 n = 1000
 $$
 
-Therefore: 
+Therefore:
 
 $$
 SE(\hat{p}) = \sqrt{\frac{0.07 * 0.93}{1000}} = 0.008068457
@@ -130,7 +130,7 @@ Using the same method, the 95% confidence intervals for the percentage of 25-to-
 
 *Total points:* *7*
 
-::: {.callout-tip}
+::: callout-tip
 6.5/7
 :::
 
@@ -140,7 +140,7 @@ Assume that the standard deviation for the population distribution of a state in
 
 *Points: 3*
 
-::: {.callout-tip}
+::: callout-tip
 3/3
 :::
 
@@ -154,7 +154,7 @@ se <- sd / sqrt(sample_dis)
 data.frame(Sample_distribution =sample_dis, Standard_error = se)
 ```
 
-**n = 1**
+```{**n = 1**}
 
 $SE = \frac{200}{\sqrt{1}}=200$
 
@@ -168,7 +168,7 @@ $SE = \frac{200}{\sqrt{4}}=100$
 
 *Points: 1*
 
-::: {.callout-tip}
+::: callout-tip
 0.5/1
 :::
 
@@ -176,7 +176,7 @@ Describe specifically how the variability of the sampling distribution changes a
 
 From this case, we can see that there is an inverse relationship. We can see that as the sample size goes up the standard error goes down. this means as we draw larger samples, the sample distribution of the n becomes less variable.
 
-::: {.callout-tip}
+::: callout-tip
 You only partially answered the question: which sample size do you think is most optimal if conducting the poll?
 :::
 
@@ -184,13 +184,12 @@ You only partially answered the question: which sample size do you think is most
 
 *Points: 3*
 
-::: {.callout-tip}
+::: callout-tip
 3/3
 :::
 
 Display your results graphically (using R) with the sample size on the x-axis and the standard error (of the sampling distribution) on the y-axis.
 
-```{r}
 library(ggplot2)
 
 sample_sizes <- c(1, 4, 25, 100, 250, 1000, 5000, 10000)
@@ -214,7 +213,7 @@ print(p)
 
 *Points: 4*
 
-::: {.callout-tip}
+::: callout-tip
 4/4
 :::
 
@@ -235,7 +234,7 @@ The MOE for 90% confident interval is 3.7
 
 *Points: 4*
 
-::: {.callout-tip}
+::: callout-tip
 4/4
 :::
 
@@ -280,7 +279,7 @@ data.frame(probability_25 = p_25)
 
 *Points: 4*
 
-::: {.callout-tip}
+::: callout-tip
 3/4
 :::
 
@@ -295,8 +294,6 @@ z_500 <- qnorm(0.975)
 
 ci_95_500 <- c(p_500 -z_500 * sqrt(p_500 *(1 - p_500)/ n_500),
                p_500 + z_500 * sqrt(p_500 * (1 - p_500)/ n_500))
-
-
 print(ci_95_500)
 ```
 
@@ -328,8 +325,8 @@ print(ci_95_50000)
 
 ```
 
-::: {.callout-tip}
-Almost! The question asks for the confidence interval for the range of the *count* of heads. So, your center point should the number of heads you flipped in these trials. If you have a 50% chance of getting heads when you flip a fair coin, your expected number of heads should be 250, 2,500, and 25,000 heads from each trial. You calculate your confidence around this result. 
+::: callout-tip
+Almost! The question asks for the confidence interval for the range of the *count* of heads. So, your center point should the number of heads you flipped in these trials. If you have a 50% chance of getting heads when you flip a fair coin, your expected number of heads should be 250, 2,500, and 25,000 heads from each trial. You calculate your confidence around this result.
 
 ```{r}
 p_head <- 0.5

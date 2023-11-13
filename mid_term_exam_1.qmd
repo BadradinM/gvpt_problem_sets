@@ -142,7 +142,7 @@ summary(ages1)
 
 If the median ages of ten people is 50, that means the ages are not that far apart from each other. Hypothetically, if we say the ages are 35, 33, 39, 49, 50, 51, 52, 55, 58, and 60. And if we put the ages in ascending order, the median would be 50 in this case
 
-But If the 40 year old person leaves the room and that person is from the first four or the last four group, the median would still be around 50. So, theoretically, we can confirm what will happen to the renaming nine people without having the real ages of the people
+But If the 40 year old person leaves the room and that person is from the first four or the last four group, the median would still be around 50. So, theoretically, we can confirm what will happen to the renaming nine people without having the real ages of the people.
 
 ### Question 8
 
@@ -196,29 +196,29 @@ Table entries represent raw counts of observations within each cell.
 
 ![](images/image-1145969869.png){width="384"}
 
-+:------------------:+:-------------:+:---------------:+:-------------:+
-| **\[Social Trust** | **Voted**     | **Didn't vote** | **Total**     |
-|                    |               |                 |               |
-|                    | 1             | 0               |               |
-+--------------------+---------------+-----------------+---------------+
-| 0                  | 257           | 137             | 394           |
-|                    |               |                 |               |
-|                    | 65.2%         | 34.8%           | 100%          |
-+--------------------+---------------+-----------------+---------------+
-| 1                  | 194           | 93              | 287           |
-|                    |               |                 |               |
-|                    | 67.6%         | 33.4%           | 100%          |
-+--------------------+---------------+-----------------+---------------+
-| 2                  | 192           | 56              | 248           |
-|                    |               |                 |               |
-|                    | 77.4%         | 22.6%           | 100%          |
-+--------------------+---------------+-----------------+---------------+
-| 3                  | 240           | 30              | 270           |
-|                    |               |                 |               |
-|                    | 89.9%         | 11.1%           | 100%          |
-+--------------------+---------------+-----------------+---------------+
-| **Total**          | 883           | 316             | 1,199         |
-+--------------------+---------------+-----------------+---------------+
++:------------------:+:---------:+:---------------:+:---------:+
+| **\[Social Trust** | **Voted** | **Didn't vote** | **Total** |
+|                    |           |                 |           |
+|                    | 1         | 0               |           |
++--------------------+-----------+-----------------+-----------+
+| 0                  | 257       | 137             | 394       |
+|                    |           |                 |           |
+|                    | 65.2%     | 34.8%           | 100%      |
++--------------------+-----------+-----------------+-----------+
+| 1                  | 194       | 93              | 287       |
+|                    |           |                 |           |
+|                    | 67.6%     | 33.4%           | 100%      |
++--------------------+-----------+-----------------+-----------+
+| 2                  | 192       | 56              | 248       |
+|                    |           |                 |           |
+|                    | 77.4%     | 22.6%           | 100%      |
++--------------------+-----------+-----------------+-----------+
+| 3                  | 240       | 30              | 270       |
+|                    |           |                 |           |
+|                    | 89.9%     | 11.1%           | 100%      |
++--------------------+-----------+-----------------+-----------+
+| **Total**          | 883       | 316             | 1,199     |
++--------------------+-----------+-----------------+-----------+
 
 Among the respondents those with highest (3) social trust have voted the most (89%), those with moderately high (2) social trust have voted 77% while only 22% did not vote. Compared to those with lower level of social trust (1) only 67% voted and 33% did not vote. And among those with no (0) social trust only 65% voted and 34% did not vote.
 

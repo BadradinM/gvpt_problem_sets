@@ -48,11 +48,21 @@ $$
 r =\sum(x_i-x̄/sx)(yi-ȳ/sy) / n-1
 $$
 
+use geom_poiont aes (color) to color outliers
+
+the plot is weak positive correlated
+
 ## Question 2
 
 *Points: 5*
 
 Regress `womleg_2015` (as the dependent variable) on `libpct_m` and report the results in a professionally formatted table. Write the model equation with the estimated coefficients and interpret them. What does the value of $R^2$ tell us about this model?
+
+coe_renmane to change the variable names in the lm
+
+what does the model equation tell us?
+
+model equation = to understand and measure the percentage of women in the legistlator (womleg_2015) libpct_m (the dv)
 
 ```{r}
 library(tidyverse)
@@ -89,8 +99,12 @@ According to our model, 37.1% of change in our dependent variable, percent of st
 
 Based on this regression, find the predicted value, the observed value, and compute the residual for the state of Colorado and then the state of Georgia. Lastly, compute the total aggregate error from those two select observations combined (i.e., Colorado and Georgia).
 
+21 = idenfieid as liberal
+
+17 = identfied as
+
 ::: callout-tip
-Think RSS.
+Think RSS
 :::
 
 ```{r}
@@ -217,9 +231,11 @@ states <- states |>
     dem_advantage < st_q ~ "Low",
     dem_advantage >= st_q & dem_advantage < th_q ~ "Mid",
     dem_advantage >= th_q ~ "High"
-  ))
+  ),
+  dem_adv <- factor(dem_adv, levels = c("Low","Mid", "High")))
 sum_dem_adv <- summary(states$dem_advantage)
 print(sum_dem_adv)
+
 
 ```
 

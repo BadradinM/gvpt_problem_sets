@@ -23,7 +23,7 @@ Please upload your completed assignment to the ELMs course site (under the assig
 Suppose I want to examine the hypothesis that consuming political news coverage from cable network channels (e.g., CNN, MSNBC, Fox News, etc.) causes citizens to have less trust in government than if they were to consume it from mainstream print media (e.g., New York Times, Wall Street Journal, etc.). What is more, suppose that I believe that this effect is greatest among "young" citizens. Design the contours of an experiment to test this proposition (and be sure to sketch the key elements of the experimental design). Second, briefly describe any significant shortcomings that the experimental design might have.
 
 | Variable type | variable            | description                                                 |
-|-------------------|-------------------|------------------------------------|
+|-----------------|-----------------|---------------------------------------|
 | independent   | news consumption    | cable vs. mainstream                                        |
 |               | age group           | young vs. non-young                                         |
 | dependent     | trust in government | measured in scale (measured before and after experiment)    |
@@ -152,7 +152,7 @@ A.  The conditional distribution of respondents who are 41-50 that voted for Ker
       summarize(prob = sum(ageCategorical == "3" & presvote == "Kerry", na.rm = TRUE)/sum(ageCategorical == "3", na.rm =TRUE))
     ```
 
-    the conditional distribution for Kerry is .42. this tells us that 42% of respondent in the age group of 41-50 voted for Kerry
+    the conditional distribution for Kerry is .42. this tells us that 42% of respondent in the age group of 41-50 voted for Kerry.
 
 B.  The conditional distribution of respondents who are 41-50 that voted for Bush?
 

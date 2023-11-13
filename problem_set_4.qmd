@@ -56,7 +56,7 @@ P(college and no gun) = 0.46 x 0.69 = 0.31
 
 P (college and no gun) = 0.31
 
-There are 31% chance that individual is a both college graduate and does not have gun
+There are 31% chance that individual is a both college graduate and does not have gun.
 
 ## Question 3
 

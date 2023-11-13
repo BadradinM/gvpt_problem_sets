@@ -1,0 +1,11 @@
+---
+title: "hypothesis testing"
+format: html
+editor: visual
+---
+
+Hypothesis Testing:
+
+use t-score when it is difference of mean, (samples)
+
+use z score when it is porpotion, population, chi-square when it is different of count

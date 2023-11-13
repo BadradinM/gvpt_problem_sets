@@ -177,7 +177,7 @@ If the median ages of ten people is 50, that means the ages are not that far apa
 But If the 40 year old person leaves the room and that person is from the first four or the last four group, the median would still be around 50. So, theoretically, we can confirm what will happen to the renaming nine people without having the real ages of the people
 
 ::: {.callout-tip title="HG comments"}
-The 40 year old cannot be in the four oldest people in the group if the original median is 50 years old. 
+The 40 year old cannot be in the four oldest people in the group if the original median is 50 years old.
 
 The median age of the group will either stay the same or increase. If no one or one person in the group is 50 years old, the median age of the group will increase. For example:
 
@@ -280,29 +280,29 @@ Table entries represent raw counts of observations within each cell.
 
 ![](images/image-1145969869.png){width="384"}
 
-+:------------------:+:-------------:+:---------------:+:-------------:+
-| **\[Social Trust** | **Voted**     | **Didn't vote** | **Total**     |
-|                    |               |                 |               |
-|                    | 1             | 0               |               |
-+--------------------+---------------+-----------------+---------------+
-| 0                  | 257           | 137             | 394           |
-|                    |               |                 |               |
-|                    | 65.2%         | 34.8%           | 100%          |
-+--------------------+---------------+-----------------+---------------+
-| 1                  | 194           | 93              | 287           |
-|                    |               |                 |               |
-|                    | 67.6%         | 33.4%           | 100%          |
-+--------------------+---------------+-----------------+---------------+
-| 2                  | 192           | 56              | 248           |
-|                    |               |                 |               |
-|                    | 77.4%         | 22.6%           | 100%          |
-+--------------------+---------------+-----------------+---------------+
-| 3                  | 240           | 30              | 270           |
-|                    |               |                 |               |
-|                    | 89.9%         | 11.1%           | 100%          |
-+--------------------+---------------+-----------------+---------------+
-| **Total**          | 883           | 316             | 1,199         |
-+--------------------+---------------+-----------------+---------------+
++:----------------:+:---------:+:---------------:+:---------:+
+| **Social Trust** | **Voted** | **Didn't vote** | **Total** |
+|                  |           |                 |           |
+|                  | 1         | 0               |           |
++------------------+-----------+-----------------+-----------+
+| 0                | 257       | 137             | 394       |
+|                  |           |                 |           |
+|                  | 65.2%     | 34.8%           | 100%      |
++------------------+-----------+-----------------+-----------+
+| 1                | 194       | 93              | 287       |
+|                  |           |                 |           |
+|                  | 67.6%     | 33.4%           | 100%      |
++------------------+-----------+-----------------+-----------+
+| 2                | 192       | 56              | 248       |
+|                  |           |                 |           |
+|                  | 77.4%     | 22.6%           | 100%      |
++------------------+-----------+-----------------+-----------+
+| 3                | 240       | 30              | 270       |
+|                  |           |                 |           |
+|                  | 89.9%     | 11.1%           | 100%      |
++------------------+-----------+-----------------+-----------+
+| **Total**        | 883       | 316             | 1,199     |
++------------------+-----------+-----------------+-----------+
 
 Among the respondents those with highest (3) social trust have voted the most (89%), those with moderately high (2) social trust have voted 77% while only 22% did not vote. Compared to those with lower level of social trust (1) only 67% voted and 33% did not vote. And among those with no (0) social trust only 65% voted and 34% did not vote.
 
@@ -336,10 +336,12 @@ modelsummary(
 ```
 
 ::: {.callout-tip title="HG comments"}
-Please make sure to provide meaningful variable labels in your professionally formatted tables. `urban` is not meaningful to your readers. 
+Please make sure to provide meaningful variable labels in your professionally formatted tables. `urban` is not meaningful to your readers.
 :::
 
 A.  Interpret the effect of the independent variable on the dependent variable. *2 points*
+
+    \*\*\*use coefficient to answer (interpret) the effect of the iV on the DV
 
 ::: {.callout-tip title="HG comments"}
 1/2
@@ -355,9 +357,9 @@ A.  Interpret the effect of the independent variable on the dependent variable. 
 ```
 
 The effect of the Independent variable on the dependent variable is positive, but (somewhat) weak. As we can see from the plot there appear to be correlation of .5 And the urban population effect on the state population of those who agree abortion should be allowed is .37 so this estimate suggest that as increase of state urban population the state population that say abortion should be allowed increases as well.
-    
+
 ::: {.callout-tip title="HG comments"}
-Almost! If the percentage of a state’s population that lives in an urban area increases by one percentage point, the percentage of the state’s population that says abortion should always be allowed increases by 0.373 percentage points, on average.
+Almost! If the percentage of a state's population that lives in an urban area increases by one percentage point, the percentage of the state's population that says abortion should always be allowed increases by 0.373 percentage points, on average.
 :::
 
 B.  Interpret the estimate of the intercept. Is it substantively meaningful to interpret this coefficient on its own? Explain why, or why not. *2 points*
@@ -371,7 +373,7 @@ In this model our intercept is 9.6 this represents the percentage of the states 
 Based on this i think i think it is not substantively meaningful to interpret this coefficient because are the population in the urban is nearly 0.
 
 ::: {.callout-tip title="HG comments"}
-The intercept provides our predicted outcome when our independent variable is set to zero. If zero percent of a state’s population lives in an urban area, the percentage of the state’s population that says abortion should always be allowed is 9.64 percent, on average. Because there are no states that have no urban centers, the intercept coefficient is not substantively meaningful to interpret on its own.
+The intercept provides our predicted outcome when our independent variable is set to zero. If zero percent of a state's population lives in an urban area, the percentage of the state's population that says abortion should always be allowed is 9.64 percent, on average. Because there are no states that have no urban centers, the intercept coefficient is not substantively meaningful to interpret on its own.
 :::
 
 C.  Compute the residual sum of squares for the following two observations combined: (1) California; and (2) Texas. *2 points*
@@ -420,9 +422,11 @@ E.  Is the relationship between the independent and dependent variable causal? W
 ```
 
     No. Although we have a positive correlation of .5, the variance between the independent and the dependent variable is very low at 27%. I think there might be confounding variables that is might effect the urban pop and the abortion attitudes that isnt in this model. So, it is not clear from the regression if there is causal relation between
-    
+
+##we can find causality in regression analysis. we can only determine correlation
+
 ::: {.callout-tip title="HG comments"}
-OLS regression finds correlations among variables. Correlation does not imply causation. We cannot use regression analysis alone to determine a causal relationship. 
+OLS regression finds correlations among variables. Correlation does not imply causation. We cannot use regression analysis alone to determine a causal relationship.
 :::
 
 ### Question 2
@@ -474,3 +478,16 @@ The question asks you to discuss the distribution of `literacy` and `free_overal
 The relationship between literacy rate and economic freedom appear to be positive. As literacy rates increase, the degree of economic freedom also tends to increase. We can see that a great number of data points are clustered towards the higher end of the literacy scale, especially between 80% to 100%. we can also see that a great number of countries have economic freedom rating around between 40 and 60 with little bit higher around 60. Also, i think there might be some (candidates) outliers, right around the 90 - 100 mark of literacy rate, which are not corresponding to high economic freedom. And although the relathionship is postive (with a correlation of .4), i think the strengthen of the relationship is somewhat moderate based on the how close the data points are to the line.
 
 Based on the this scatterplot, countries with higher literacy rates tend to have a higher degree of economic freedom, and vice versa (with the exception of few). Although, there appear to be correlation between literacy rate and degree of economic freedom this does not mean causuality. I think further analysis is required to determine causality.
+
+```{r}
+library(poliscidata)
+library(ggplot2)
+library(scales)
+ggplot(world, aes(x= free))
+
+skimr::skim(world$free_overall|> 
+              select(numeric.mean:mean:numeric.hist) |> 
+              knit::kable))
+```
+
+#use distrubuition to identify outline, in a bivariate relationship

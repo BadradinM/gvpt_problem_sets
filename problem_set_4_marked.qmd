@@ -84,7 +84,7 @@ P (degree) = .46
 
 P (no gun) = 1 - 0.31 = 0.69
 
-P(college and no gun) = P (college) x p(no gun)
+P(college and no gun) = P (college) x P(no gun)
 
 P(college and no gun) = 0.46 x 0.69 = 0.31
 
@@ -114,7 +114,7 @@ P (1st roll \>3 and 2nd roll \>3) = P(1st roll \>3) x P(2nd roll \>3)
 
 P (1st roll \>3 and 2nd roll \>3) = 1/2 x 1/2 = 1/4
 
-there is 1/4 (25%) probability that the next two dice will both be greather that three
+there is 1/4 (25%) probability that the next two dice will both be greater that three
 
 ## Question 4
 
@@ -136,13 +136,13 @@ Assume that in the United States, 15% of people are smokers and, of smokers, 60%
 
 P (smoker) = 0.15
 
-P (Smoke a pack ) = 0.60
+P (smoke a pack ) = 0.60
 
-P (smokers/develop lunch cancer) = 0.60
+P (smokers/develop lung cancer) = 0.60
 
 P (develop lung/do not smoke pack) = 0.10
 
-P (smoke a pack) = P (smokers) x P(smokers/develop lunch cancer) = 0.15 x 0.60 = 0.09
+P (smoke a pack) = P (smokers) x P(smokers/develop lung cancer) = 0.15 x 0.60 = 0.09
 
 P (smoke pack and lung cancer) = 1−0.09=0.91
 

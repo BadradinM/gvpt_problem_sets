@@ -45,9 +45,11 @@ freq(gss$partyid_3, plot = F)
 This variable (partyid_3) has some level of dispersion, the cases are spread evenly across all value of the variable. With Indepedent's acquiring most of the cases at 40%, followed by democrat at 36% and republican at 23%.
 
 ::: {.callout-tip title="HG comments"}
-Be a touch more careful with your rounding. For example: 
+Be a touch more careful with your rounding. For example:
 
 ```{r}
+library(dplyr)
+library(poliscidata)
 janitor::tabyl(gss, partyid_3) |> 
   mutate(percent = scales::percent(percent, accuracy = 1))
 ```
@@ -72,8 +74,7 @@ iq <- c(
   145, 139, 126, 122, 125, 130, 96, 110, 118, 118, 101, 142, 134, 124, 112, 109, 
   134, 113, 81, 113, 123, 94, 100, 136, 109, 131, 117, 110, 127, 124, 106, 124, 
   115, 133, 116, 102, 127, 117, 109, 137, 117, 90, 103, 114, 139, 101, 122, 105, 
-  97, 89, 102, 108, 110, 128, 114, 112, 114, 102, 82, 101)
-
+  97, 89, 102, 108, 110, 128, 114, 112, 114, 102, 82, 101) 
 ```
 
 ### Part A
@@ -94,13 +95,14 @@ hist(iq)
 There are no suspected outliers in the distribution. The distribution is Skewed to the left.
 
 ::: {.callout-tip title="HG comments"}
-You are correct that there are no outliers within these data; however, we need you to add more on how you know that. What is a good method for detecting outliers? You can look at data points that fall outside of 1.5 times the interquartile range from the median. A boxplot will display this range for you. 
+You are correct that there are no outliers within these data; however, we need you to add more on how you know that. What is a good method for detecting outliers? You can look at data points that fall outside of 1.5 times the interquartile range from the median. A boxplot will display this range for you.
 :::
 
 ::: {.callout-tip title="HG comments"}
-The data are not skewed to the left. You can use a smaller bin size to look at the distribution in more detail. In fact, the data are technically slightly skewed to the right. For right skewed data, the mean is greater than the median. For this group, the mean IQ is `r round(mean(iq), 1)` and the median IQ is `r median(iq)`; however, this difference is so small that I would say this is approximately normal (or symmetrical). 
+The data are not skewed to the left. You can use a smaller bin size to look at the distribution in more detail. In fact, the data are technically slightly skewed to the right. For right skewed data, the mean is greater than the median. For this group, the mean IQ is `r round(mean(iq), 1)` and the median IQ is `r median(iq)`; however, this difference is so small that I would say this is approximately normal (or symmetrical).
 
 ```{r}
+library(ggplot2)
 ggplot(tibble(iq = iq), aes(x = iq)) + 
   geom_histogram(bins = 30)
 ```
