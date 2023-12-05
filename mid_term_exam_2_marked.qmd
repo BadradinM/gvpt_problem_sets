@@ -32,7 +32,7 @@ Please include all work (and computations) necessary to answer the questions.
 
 *2 points*
 
-::: {.callout-tip}
+::: callout-tip
 1/2
 :::
 
@@ -46,8 +46,8 @@ Z Score:
 
 90% CI z score = 1.645
 
-::: {.callout-tip}
-You need to use the t-statistic, not z score, for means. 
+::: callout-tip
+You need to use the t-statistic, not z score, for means.
 :::
 
 Standard error:
@@ -70,7 +70,7 @@ The 90% CI is 27.65, 126.35, this means that we are 90% confident that the true 
 
 *2 points*
 
-::: {.callout-tip}
+::: callout-tip
 2/2
 :::
 
@@ -84,7 +84,7 @@ Based on our 90% confident interval (27.65, 126.35) we can reject the null with 
 
 *2 points*
 
-::: {.callout-tip}
+::: callout-tip
 2/2
 :::
 
@@ -96,7 +96,7 @@ In this case a type II error is likely to be committed. Which is failing to reje
 
 *1 point*
 
-::: {.callout-tip}
+::: callout-tip
 1/1
 :::
 
@@ -113,7 +113,7 @@ A because it has the largest sample size, which reduces the standard error, and 
 
 *1 point*
 
-::: {.callout-tip}
+::: callout-tip
 1/1
 :::
 
@@ -131,7 +131,7 @@ C because the outcome of the first draw affects the outcome of the second draw.
 
 *1 point*
 
-::: {.callout-tip}
+::: callout-tip
 1/1
 :::
 
@@ -148,7 +148,7 @@ D because without the degrees of freedom or the sample size we cannont conclude 
 
 *1 point*
 
-::: {.callout-tip}
+::: callout-tip
 1/1
 :::
 
@@ -164,21 +164,21 @@ P = 360/1800 = 0.2
 
 *1 point*
 
-::: {.callout-tip}
+::: callout-tip
 0/1
 :::
 
 Which of the following makes it more likely that a given sample statistic will be statistically different from zero (and thus allow you to reject the null hypothesis, all else equal)?
 
-A.  **More observations**
+A.  More observations
 B.  Greater variance in the sample
 C.  Using a two-tailed instead of a one-tailed significance test
 D.  A larger confidence interval around the test statistic
-E.  Both (a) and (b) (but not (c) or (d))
+E.  **Both (a) and (b) (but not (c) or (d))**
 F.  All of the above increase the chances of statistical significance
 G.  None of the above
 
-::: {.callout-tip}
+::: callout-tip
 Both A and B are correct.
 :::
 
@@ -186,19 +186,19 @@ Both A and B are correct.
 
 *1 point*
 
-::: {.callout-tip}
+::: callout-tip
 0/1
 :::
 
 The p-value for a two-tailed test of the null hypothesis $H_0: \mu=40$ is 0.06. Which of the following statements is accurate?
 
-A.  A 95% confidence interval around the sample mean includes the value 40
-B.  **A 90% confidence interval around the sample mean includes the value 40**
+A.  **A 95% confidence interval around the sample mean includes the value 40**
+B.  A 90% confidence interval around the sample mean includes the value 40
 C.  A 99% confidence interval around the sample mean does not include the value 40
 D.  None of the above statements are correct
 E.  All of the above statements are correct
 
-::: {.callout-tip}
+::: callout-tip
 A is correct.
 :::
 
@@ -210,7 +210,7 @@ A is correct.
 
 *2 points*
 
-::: {.callout-tip}
+::: callout-tip
 1/2
 :::
 
@@ -232,15 +232,15 @@ P (two rolls) = (2/3)2 = 4/9
 
 The probability that both rolls of will be odd or greater than four is .44 (44.44%)
 
-::: {.callout-tip}
-You need to subtract the intersection ({5,5}) to avoid double counting it. 
+::: callout-tip
+You need to subtract the intersection ({5,5}) to avoid double counting it.
 :::
 
 #### Part B
 
 *2 points*
 
-::: {.callout-tip}
+::: callout-tip
 2/2
 :::
 
@@ -277,7 +277,7 @@ the probability that a student is in the 25-29 age group, given that they are fu
 
 *2 points*
 
-::: {.callout-tip}
+::: callout-tip
 2/2
 :::
 
@@ -313,7 +313,7 @@ With 95% confidence, the difference in the proportion of people favoring sex edu
 
 *2 points*
 
-::: {.callout-tip}
+::: callout-tip
 2/2
 :::
 
@@ -331,7 +331,7 @@ I am interested in estimating the average number of texts that University of Mar
 
 *2 points*
 
-::: {.callout-tip}
+::: callout-tip
 1/2
 :::
 
@@ -345,9 +345,11 @@ MOE:
 
 1.96 x 3 = 5.88
 
-::: {.callout-tip}
-You need to use the t-statistic. 
+::: callout-tip
+You need to use the t-statistic.
 :::
+
+This is a differnces of mean, use t-stat
 
 CI:
 
@@ -360,7 +362,7 @@ The 95% confident interval is 99.12,110.88. This indicate that we are 95% confid
 
 *2 points*
 
-::: {.callout-tip}
+::: callout-tip
 2/2
 :::
 
@@ -372,7 +374,7 @@ $t=\frac{105-100}{\frac{120}{\sqrt{1600}}}=1.67$
 
 *2 points*
 
-::: {.callout-tip}
+::: callout-tip
 2/2
 :::
 
@@ -407,7 +409,7 @@ I hypothesize that, among only those that were eligible to vote, people with gre
 
 *3 points*
 
-::: {.callout-tip}
+::: callout-tip
 3/3
 :::
 
@@ -435,13 +437,13 @@ Part B
 
 *3 points*
 
-::: {.callout-tip}
+::: callout-tip
 2/3
 :::
 
 Compute (by hand) the chi-square statistic to test the null hypothesis of no relationship between these two variables. Be sure to show your work.
 
-::: {.callout-tip}
+::: callout-tip
 You needed to remove those who were not eligible to vote.
 :::
 
@@ -475,7 +477,7 @@ chisq.test(gss$conarmy,gss$vote12)
 
 *2 points*
 
-::: {.callout-tip}
+::: callout-tip
 2/2
 :::
 
@@ -505,13 +507,15 @@ datasummary_crosstab(libcon7 ~ fracking, data = nes_data)
 
 *2 points*
 
-::: {.callout-tip}
+::: callout-tip
 2/2
 :::
 
 Using these data, what is the point estimate for the mean conservatism/liberalism score among those that disapprove of fracking? What is the point estimate for the mean conservatism/liberalism score among those that approve of fracking?
 
 ```{r}
+library(knitr)
+
 disapprove_freq <- c(120, 331, 340, 328, 291, 144, 24)
 approve_freq <- c(3, 25, 76, 117, 227, 268, 88)
 
@@ -535,7 +539,7 @@ The point estimate for the mean conservatism/liberalism score among those who ap
 
 *6 points*
 
-::: {.callout-tip}
+::: callout-tip
 5/6
 :::
 
@@ -583,8 +587,8 @@ print(df)
 print(p_value2)
 ```
 
-::: {.callout-tip}
-The degrees of freedom are calculated by subtracting one from the smaller of the two groups' sample sizes. 
+::: callout-tip
+The degrees of freedom are calculated by subtracting one from the smaller of the two groups' sample sizes.
 :::
 
 Because we have a small p-value, which is much less than any 0.05 significance level we reject the null hypothesis. This provides very strong evidence against the null hypothesis, supporting the alternative hypothesis that there is a statistically significant difference in the mean conservatism/liberalism scores between those who approve and those who disapprove of fracking.
@@ -608,7 +612,7 @@ datasummary_crosstab(Voted_2016 ~ Relig_imp, data = nes_data)
 
 *2 points*
 
-::: {.callout-tip}
+::: callout-tip
 2/2
 :::
 
@@ -635,7 +639,7 @@ point_estimate_great_deal)
 
 *6 points*
 
-::: {.callout-tip}
+::: callout-tip
 6/6
 :::
 

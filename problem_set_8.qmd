@@ -78,21 +78,10 @@ ggplot(states, aes(x = hispanic10, y = romney2012))+
   geom_point()+
   geom_smooth(method = lm, se = F)+
   theme_classic()
-
-model <- lm(romney2012 ~ hispanic10, data = states)
-modelsummary(model,
-             statistic = NULL,
-             gof_map = "nobs")
-
 cor(states$romney2012, states$hispanic10)
-
 ```
 
-Strength: negative
-
-Direction:
-
-This scatterplot shows a negative relationship between the percentages of the votes Mitt Romney recieve in a state and the percentage of the hispanic population. With a correlation coefficient of -0.19.
+This scatterplot shows a negative trend, as shown by the downward slope line. As the percentage of the Hispanic population increases, the percentage of votes for Mitt Romney decreases. The correlation for this scatter is -0.19
 
 ## Question 5
 
@@ -102,5 +91,9 @@ Estimate a bivariate regression with `romney2012` as the dependent variable and 
 
 ```{r}
 model <- lm(romney2012 ~ hispanic10, data = states)
-summary(model)
+modelsummary(model,
+             coef_rename = c("hispanic10" = "Hispanic pop in a state"),
+             statistic = c("conf.int","p.value"))
 ```
+
+Our regression result shows that the intercept is 51.87, with a 95% confident interval of between 47.65 and 56.09, this means that if the percentage of the hispanic population were zero the predicted outcome would be 51.87. The coefficint in out model shows -0.196 meaning that for every one percentage point increase in the Hispanic population within a state, the dependent variable is expected to decrease by 0.196 percentage points, holding all else constant. Our model shows an R-squared of 0.037, which means that approximately 3.7% of the variance in the dependent variable is explained by the x variable. This is a very low value, indicating that the model does not explain much of the variance. Similarly, the adjusted R-squared value is 0.017,which further confirms that the model explains very little of the variance in the dependent variable. Finally, the p-value associated with the coefficient is 0.182, since it is greater than 0.05, the statistical evidence is not strong enough to reject the null at the 5% significance level. Therefore, we would not consider the relationship between the percentage of the Hispanic population and the dependent variable to be statistically significant based on this model.
