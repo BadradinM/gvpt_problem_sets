@@ -20,23 +20,75 @@ Please upload your completed assignment to the ELMs course site (under the assig
 
 Table 1 below reports the results from two regression models. In Model 1, in Table 1, $Y$ is regressed on $X_1$ and, in Model 2, $Y$ is regressed on both $X_1$ and $X_2$. Why might $X_1$ be statistically significant at conventional levels in Model 1 but statistically insignificant in Model 2? Be as specific as possible.
 
+![](images/image-1466862551.png){width="397"}
+
+In the second model $X_2$ is not statistically significant because of omittied variable bias. when the model was first ran, withouth $X_2$, $X_1$ picked up all the effects of $X_2$. and so when the model was ran the second time, $X_2$ became insigificant because its effects is picked up by $X_1$ in the first model.
+
+Multicollinearity could also be after that is effecting this. If $X_1$​ and $X_2$ are highly correlated with each other, it can lead to multicollinearity when both are in the Model 2. Multicollinearity can effect the standard errors of the coefficients and make them statistically insigificant.
+
 ## Question 2
 
 *Points: 10*
 
-Using the `censusAggregate` dataset (posted on ELMs) — which is survey data aggregated to the state level (1972-2000) — estimate a regression with `vote` as the dependent variable and the following independent variables: `nonSouth`, `edr`, and `pcthsg`. Report the results in a professionally formatted table and interpret the regression results. 
+Using the `censusAggregate` dataset (posted on ELMs) --- which is survey data aggregated to the state level (1972-2000) --- estimate a regression with `vote` as the dependent variable and the following independent variables: `nonSouth`, `edr`, and `pcthsg`. Report the results in a professionally formatted table and interpret the regression results.
 
 Also, create a figure to display the predicted values (with confidence intervals) for the effect of `pcthsg` on the turnout rate. Lastly, is it meaningful to interpret the constant term on its own? Why, or why not?
 
-::: {.callout-note}
-`vote` is the turnout rate in a state in a given year (i.e., the number of people who voted divided by the number eligible to vote). 
+::: callout-note
+`vote` is the turnout rate in a state in a given year (i.e., the number of people who voted divided by the number eligible to vote).
 
-`nonSouth` is a dummy variable equal to `0` for Southern states and a `1` for non-Southern states. 
+`nonSouth` is a dummy variable equal to `0` for Southern states and a `1` for non-Southern states.
 
-`pcthsg` is the percentage of the population in a state that graduated high school. 
+`pcthsg` is the percentage of the population in a state that graduated high school.
 
 `edr` is a dummy variable equal to `1` for states that used election-day registration and a `0` for states without election-day registration.
 :::
+
+```{r, echo=FALSE}
+library(modelsummary)
+library(marginaleffects)
+library(plotly)
+library(ggdist)
+library(ggplot2)
+library(tidyverse)
+library(broom)
+library(stargazer)
+library(readr)
+```
+
+```{r, echo=FALSE}
+census <- read_csv("~/RWork/gvpt_problem_sets/Data/censusAggregate.csv")
+```
+
+```{r}
+model <- lm(vote ~ nonSouth + edr + pcthsg, data= census)
+print(model)
+stargazer(model, 
+          type = "text", 
+          covariate.labels = c("Non-Southern States", "Used Election-day Reg/Without", "(%) Of Pop State with HS Grad", "Intercept"),
+          dep.var.labels = c("Turnout Rate"),
+          ci = TRUE,  
+          ci.level = 0.95)
+```
+
+In our model the intercept is 54.002, which means that for a Southern state without election-day registration and with a 0% high school graduation rate, the expected turnout rate is 54.002%, on average.
+
+Our coefficient for non-southern states is statistically significant at the 0.01 level. In non-southern states have a turnout rate on average 5.5 percentage point higher than southern states, holding the other variables constant.
+
+States with election-day registration have, on average, a 5.792 percentage points higher turnout rate than states without it, controlling for the other variables in the model.
+
+The coefficient for state that has population that graduated high school is 0.101 and is significant at the 0.01 level. For each one percentage point increase in the high school graduation rate, the voter turnout rate is expected to increase by 0.101 percentage points, on average, holding the other variables constant.
+
+```{r}
+plot_predictions(model, condition = "pcthsg")+
+theme_classic()
+
+### Confident Inteval
+tidy(model,
+     conf.int = T) 
+```
+
+The constant term represents the expected value of the dependent variable when all the independent variables are zero. It is not meaningful to interpret the constant on its ow because it may not be realistic to have all independent variables at zero. For example, in this case, we can not have states with zero high school graduates nor can we have state that hold election without election-day registration. Therefore, the constant term is often used to adjust the regression line, but not interpreted on its own.
 
 ## Question 3
 
@@ -44,8 +96,44 @@ Also, create a figure to display the predicted values (with confidence intervals
 
 Using the regression results from the previous question, evaluate the null hypothesis that the effects (i.e., regression coefficients) of `nonSouth` and `pcthsg` are jointly equal to zero. Can you reject the null hypothesis? Be sure to demonstrate how you reached a definitive conclusion.
 
+The $H_0$ states that both coefficients are equal to zero, which means that these variable have no effect on the dependent variable.
+
+However, after resulting the regression, our models shows that non-southern states and states with high school graduate are both statistically significant. The p-value for both variables is below the significance level of 0.5 giving giving us evidence to reject the null at the 95% confidences.
+
 ## Question 4
 
 *Points: 15*
 
 Using one of the other datasets available in the `poliscidata` package pick one dependent variable and two or more independent variables. Run a regression of the dependent variable on the independent variables. In your answer, describe why you picked the variables you did, produce a professionally formatted results table, and describe your statistical and substantive findings.
+
+```{r}
+library(poliscidata)
+data("world")
+m <- lm(literacy ~ hi_gdp + spendeduc, data = world)
+summary(m)
+stargazer(m, 
+          type = "text", 
+          covariate.labels = c("GDP", "Education Expend (%)", "Intercept"),
+          dep.var.labels = c("Literacy Rate"),
+          ci = TRUE,  
+          ci.level = 0.95)
+tidy(m)
+```
+
+**Objective**: To investigate the relationship between a country's education expenditure and its GDP, and the impact these factors have on the literacy rate.
+
+**Why:** I chose to focus on literacy rate as a measure to explore the influence of GDP and education expenditure on a country's literacy levels. After running the model, I find statistical significance in the coefficients of both variables. However, these variables alone do not robustly predict literacy rates. Other indicators, like educational attainment, could potentially be more predictive of literacy rates, but such data was not available in our dataset.
+
+$H_a:$ The greater proportion of a country's GDP that it spends on education expenduture, the higher literacy rate its citizens will have on average
+
+$H_o:$ There is no significant relationship between the proportion of a country's GDP spent on education expenditure and the average literacy rate of its citizens
+
+**Interpretation:**
+
+In the model, the intercept tells us that on average literacy rate is 64 when country spends zero on GDP and education expenditure
+
+The coefficient of GDP tells that for every one-unit increase in a county GDP, its literacy rate is expected to increase by 23.36 on average, holding all else constant.
+
+The coefficient for education expenditure tells that when country education expenditure increase by 1% its literacy rate is expected to increase by 1.24 on average, holding all else constant.
+
+**Findings**: The results from my model reveal that both the GDP and education expenditure variables are statistically significant. The coefficient for GDP stands at 23.36, accompanied by a highly significant p-value of 0.0000913. Similarly, the coefficient for education expenditure is also significant at 1.24 with a p-value of 0.00014. However, the model exhibits a relatively low R-squared value of 0.33, indicating that it explains only a limited portion of the variation in the data.
