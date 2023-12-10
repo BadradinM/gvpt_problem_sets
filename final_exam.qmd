@@ -1,0 +1,259 @@
+---
+title: "Final Exam"
+format: 
+  html:
+    self-contained: true
+editor: visual
+execute: 
+  echo: true
+  message: false
+  warning: false
+---
+
+Please read all of the questions and tables carefully and follow all instructions. Each question has an allotted point value. Be as thorough and specific as possible; extra calculations and incorrect information, even in the presence of correct information, will result in point deductions. Be sure to show all formulas and all necessary work to answer the questions. You may upload your completed exam to the Elms course site.
+
+::: callout-note
+While this is an open-note exam, you are not to receive assistance from anyone else. As usual, the Honor Code applies.
+:::
+
+**Total points: 50**
+
+## Conceptual Questions
+
+Please include all work (and computations) necessary to answer the questions.
+
+**Total points: 20 (2 points each)**
+
+### Question 1
+
+Suppose you estimate a bivariate regression model with a total sample size of 50 and obtain a standard error for $\beta_1$ of 2.50. What is the smallest regression coefficient ($\beta_1$) that you could have and still be able to reject the null hypothesis (of no relationship between $X_1$ and $Y$) at the 0.05 level with a one-tailed test?
+
+$H_0:$ $B_1=0$
+
+$SE$ = 2.50
+
+$DF$ = 50 - 1 = 48
+
+Critical value = 1.67
+
+1.67 x 2.50 = 4.19
+
+### Question 2
+
+I regress $Y$ on $X_1$ (i.e., $Y = \beta_0 + \beta_1 X_1$) and find that $\beta_1 = 4.20$, $SE_{\beta_1} = 1.90$, $t = 2.21$, $p = 0.01$, and a 95% confidence interval is \[0.48, 7.92\]. What is my best estimate of the effect of a two-unit change in $X$ on the mean of $Y$ in the population?
+
+$B_1$​=2×4.20=8.40
+
+The best estimate that a two-unit increase in $X_1$​ is associated with an 8.40 unit increase in the mean of Y
+
+### Question 3
+
+I conduct an OLS regression with a sample size of 90 and 5 independent variables. To determine a p-value for each coefficient, I would examine a t-distribution with how many degrees of freedom?
+
+$DF$ = 90 - 5 = 84
+
+### Question 4
+
+Suppose I regress $Y$ on $X$ and compute the mean response for $Y$ at some specified value of $X$. When determining the confidence interval around this mean response, which of the following will **NOT** have any effect on the width (or, size) of that confidence interval?
+
+A.  Total sample size,
+
+B.  Mean-squared error,
+
+C.  The specified value of $X$,
+
+D.  **None of the above: all of these (above) will affect the confidence interval,**
+
+E.  There is not enough information to answer this question.
+
+### Question 5
+
+I regress $Y$ on $X$ and find that $\beta_1$ has a two-tailed p-value of 0.04. Which of the following statements is most accurate?
+
+A.  The lower and upper bound of a 95% confidence interval around $\beta_1$ will have the same sign,
+
+B.  The absolute value for the t-statistic for $\beta_1$ will be greater than 1.96,
+
+C.  A 90% confidence interval around $\beta_1$ will not contain zero,
+
+D.  All of the above,
+
+E.  None of the above and/or there is not enough information.
+
+### Question 6
+
+I regress $Y$ on three independent variables -- $X_1$, $X_2$, and $X_3$ -- and I find the following 95% confidence intervals -- $\beta_1$: \[0.12, 1.45\], $\beta_2$: \[-0.01, 0.15\], and $\beta_3$: \[-0.64, -0.01\]. Which of the following statements is most accurate?
+
+A.  $\beta_2$ and $\beta_3$ will have negative coefficients, and $\beta_1$ is statistically significant at the 0.05 level (two-tailed),
+
+B.  $\beta_1$ will have a positive coefficient, and $\beta_1$ is the only statistically significant coefficient (of the three coefficients) at the 0.05 level (two-tailed),
+
+C.  $\beta_1$ will have a positive coefficient, $\beta_2$ and $\beta_3$ will have negative coefficients, and only $\beta_1$ and $\beta_3$ are statistically significant at the 0.05 level (two-tailed),
+
+D.  All of the above,
+
+E.  None of the above and/or there is not enough information.
+
+### Question 7
+
+Suppose I estimate a regression with two independent variables and obtain a $R^2$ of 0.40 where the Residual Sum of Squares is equal to 5,150. What does the Total Sum of Squares equal in this regression model?
+
+### Question 8
+
+I regress $Y$ on $X_1$ and $X_2$ (i.e., $Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2$). I find that $\beta_1 = -0.87$ with a two-tailed p value of 0.001 and $\beta_2 = 3.52$ with a two-tailed p-value of 0.04. Which of the following statements is most accurate?
+
+A.  $X_2$ has a larger substantive effect on $Y$ than $X_1$, but the effect of $X_1$ is more statistically significant,
+
+B.  $X_1$ has a larger substantive effect on $Y$ than $X_2$ and $X_1$ is more statistically significant than $X_2$,
+
+C.  $X_1$ has a larger substantive effect on $Y$ than $X_2$, but the effect of $X_2$ is more statistically significant,
+
+D.  None of the above and/or there is not enough information.
+
+### Question 9
+
+I regress $Y$ on $X_1$ (i.e., $Y = \beta_0 + \beta_1 X_1$) and obtain a $R^2$ of 0.45. Then, I regress $Y$ on both $X_1$ and $X_2$ (i.e., $Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2$) and obtain a $R^2$ of 0.53. Which of the following statements must be true?
+
+A.  The correlation between $X_1$ and $Y$ is stronger than the correlation between $X_2$ and $Y$,
+
+B.  The coefficient on $\beta_1$ is statistically significant in both models,
+
+C.  The model with $X_1$ and $X_2$ explains more of the variation in $Y$ than a model with just $X_1$,
+
+D.  All of the above: all of these statements are true.
+
+### Question 10
+
+Based on the following regression equation, might the negative coefficient on the South variable be the result of southern states having a lower proportion of high school graduates than non-southern states? In no more than one sentence, explain your answer.
+
+$$
+Turnout = 34 + 0.5(Percent\ High\ School\ Graduates) – 5.9(South)
+$$
+
+## Applied Questions
+
+All datasets referenced below are posted on the ELMs course site.
+
+### Question 1
+
+*Points: 15*
+
+Use the `world` dataset to answer the following questions. The relevant variables and their coding information are as follows: `literacy` indicates a country's literacy rate; `dem_score14` represents a country's level of democratization (higher values indicate greater democratization); `spendeduc` reflects the amount of public expenditures on education as a percentage of GDP; `gdp_10_thou` represents GDP per capita (one unit is \$10,000 USD); `educ_quality` indicates the average quality rating of a country's educational system; and `ungr9095` represents the percent average annual population growth.
+
+```{r echo=FALSE}
+library(poliscidata)
+library(modelsummary)
+library(stargazer)
+```
+
+#### Part A
+
+*Points: 4*
+
+Evaluate the bivariate relationship (using R) between a country's support for public education and its literacy rate. Report the results in a professionally formatted table. Do countries that spend more money on education appear to have a higher literacy rate?
+
+```{r}
+library(readr)
+world_data <- read_csv("world.csv")
+```
+
+```{r}
+m <- lm(literacy ~ spendeduc, data = world_data)
+print(m)
+stargazer(m, 
+          type = "text", 
+          covariate.labels = c("Education Expend (%)", "Intercept"),
+          dep.var.labels = c("Literacy Rate"),
+          ci = TRUE,  
+          ci.level = 0.95)
+tidy(m)
+```
+
+$H_a:$ The greater proportion of a country's GDP that it spends on education expenduture, the higher literacy rate its citizens will have on average
+
+$H_o:$ There is no significant relationship between the proportion of a country's GDP spent on education expenditure and the average literacy rate of its citizens
+
+**Interpretation:**
+
+In the model, the intercept tells us that on average literacy rate is 64 when country spends zero on GDP and education expenditure
+
+The coefficient of GDP tells that for every one-unit increase in a county GDP, its literacy rate is expected to increase by 23.36 on average, holding all else constant.
+
+The coefficient for education expenditure tells that when country education expenditure increase by 1% its literacy rate is expected to increase by 1.24 on average, holding all else constant.
+
+**Findings**: The results from my model reveal that both the GDP and education expenditure variables are statistically significant. The coefficient for GDP stands at 23.36, accompanied by a highly significant p-value of 0.0000913. Similarly, the coefficient for education expenditure is also significant at 1.24 with a p-value of 0.00014. However, the model exhibits a relatively low R-squared value of 0.33, indicating that it explains only a limited portion of the variation in the data
+
+#### Part B
+
+*Points: 5*
+
+Estimate a second regression model (using R) that includes both a country's public expenditures on education and its level of democratization as independent variables. When controlling for democratization, does education expenditures exhibit a significant impact on literacy? Report the results in a professionally formatted table. Be sure to discuss the extent to which the results change, and if so, why they changed.
+
+```{r}
+data("world")
+model <- lm(literacy ~ spendeduc + dem_score14, data = world_data)
+print(model)
+stargazer(model, 
+          type = "text", 
+          covariate.labels = c("Education Expend (%)", "Level of Democracy", "Intercept"),
+          dep.var.labels = c("Literacy Rate"),
+          ci = TRUE,  
+          ci.level = 0.95)
+```
+
+#### Part C
+
+*Points: 6*
+
+Now estimate a third model (using R) that includes all of the variables listed above. Report the regression results in a professionally formatted table and interpret each coefficient. When interpreting the impact of democratization using this regression model, present/utilize a visual representation (using R) of the expected change in literacy as a function of democratization.
+
+```{r}
+all <- lm(literacy ~ dem_score14 + spendeduc + gdp_10_thou + educ_quality + ungr9095, data = world_data)
+print(all)
+stargazer(all, 
+          type = "text", 
+          covariate.labels = c("Level of Democracy", "Education Expend", "GDP", "Education Quality", "Avg Annual Pop"),
+          dep.var.labels = c("Literacy Rate"),
+          ci = TRUE,  
+          ci.level = 0.95)
+```
+
+### Question 2
+
+*Points: 15*
+
+Using the `states` dataset, use R to regress the variable `obama08` (the percentage of a state's vote that President Obama received in the 2008 U.S. presidential election) on the following independent variables: `cig_tax` represents the amount of a state's cigarette tax (in dollars); `college` is the percentage of a state's population that graduated college (0 to 100); `union07` is the percentage of a state's workers that are union members (0 to 100); and `south` is a dichotomous variable coded as `1` if the state is located in the South (`0` otherwise). Report the results in a professionally formatted table. Answer the following questions.
+
+#### Part A
+
+*Points: 6*
+
+Interpret the substantive results from this regression model. Be sure to discuss the direction, magnitude, and statistical significance of each slope coefficient. Does the `union07` variably exhibit a substantively significant impact on voting behavior in the 2008 election?
+
+#### Part B
+
+*Points: 2*
+
+Interpret the intercept coefficient. What does this represent and is it meaningful to interpret this coefficient on its own? Why or why not?
+
+#### Part C
+
+*Points: 2*
+
+What is the expected mean percentage of Obama's vote total in a Southern state with a cigarette tax of \$2.00, a state population where 30% of people are college graduates, and where 15% of workers in a state are union members?
+
+#### Part D
+
+*Points: 3*
+
+What is a 90% confidence interval around the coefficient for the `south` variable.
+
+```{r}
+
+```
+
+#### Part D
+
+*Points: 3*
+
+What is the null hypothesis that the F-test in this regression output is testing?

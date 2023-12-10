@@ -18,7 +18,7 @@ Please upload your completed assignment to the ELMs course site (under the assig
 
 *Points: 5*
 
-::: {.callout-tip}
+::: callout-tip
 5/5
 :::
 
@@ -47,7 +47,7 @@ With a t-statistic of 1.71 and 1998 degrees of freedom, we get a p-value of .087
 
 *Points: 5*
 
-::: {.callout-tip}
+::: callout-tip
 5/5
 :::
 
@@ -61,7 +61,7 @@ This tells us that the total variance in the DV, the models residuals account fo
 
 *Points: 5*
 
-::: {.callout-tip}
+::: callout-tip
 5/5
 :::
 
@@ -75,7 +75,7 @@ The largest standard error for $\beta_1$ that still allows for statistical signi
 
 *Points: 5*
 
-::: {.callout-tip}
+::: callout-tip
 5/5
 :::
 
@@ -97,7 +97,7 @@ ggplot(states, aes(x = hispanic10, y = romney2012))+
 
 model <- lm(romney2012 ~ hispanic10, data = states)
 modelsummary(model,
-             statistic = NULL,
+             statistic = "p.value",
              gof_map = "nobs")
 
 cor(states$romney2012, states$hispanic10)
@@ -114,7 +114,7 @@ This scatterplot shows a negative relationship between the percentages of the vo
 
 *Points: 10*
 
-::: {.callout-tip}
+::: callout-tip
 8/10
 :::
 
@@ -125,15 +125,15 @@ model <- lm(romney2012 ~ hispanic10, data = states)
 summary(model)
 ```
 
-Our regression result shows that the intercept is 51.87, with a 95% confident interval of between 47.65 and 56.09, this means that if the percentage of the hispanic population were zero the predicted outcome would be 51.87. 
+Our regression result shows that the intercept is 51.87, with a 95% confident interval of between 47.65 and 56.09, this means that if the percentage of the hispanic population were zero the predicted outcome would be 51.87.
 
-::: {.callout-tip}
+::: callout-tip
 Make sure to always say that this is the effect *on average*.
 :::
 
-The coefficint in out model shows -0.196 meaning that for every one percentage point increase in the Hispanic population within a state, the dependent variable is expected to decrease by 0.196 percentage points, holding all else constant. 
+The coefficint in out model shows -0.196 meaning that for every one percentage point increase in the Hispanic population within a state, the dependent variable is expected to decrease by 0.196 percentage points, holding all else constant.
 
-::: {.callout-tip}
+::: callout-tip
 Again, *on average*.
 :::
 
