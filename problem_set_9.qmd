@@ -26,6 +26,8 @@ In the second model $X_2$ is not statistically significant because of omittied v
 
 Multicollinearity could also be after that is effecting this. If $X_1$​ and $X_2$ are highly correlated with each other, it can lead to multicollinearity when both are in the Model 2. Multicollinearity can effect the standard errors of the coefficients and make them statistically insigificant.
 
+different sample size. if we have more data on x2 than x1, our ability to capture x2 dimished.
+
 ## Question 2
 
 *Points: 10*

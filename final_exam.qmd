@@ -72,7 +72,7 @@ I regress $Y$ on $X$ and find that $\beta_1$ has a two-tailed p-value of 0.04. W
 
 A.  The lower and upper bound of a 95% confidence interval around $\beta_1$ will have the same sign,
 
-B.  The absolute value for the t-statistic for $\beta_1$ will be greater than 1.96,
+B.  **The absolute value for the t-statistic for** $\beta_1$ **will be greater than 1.96,**
 
 C.  A 90% confidence interval around $\beta_1$ will not contain zero,
 
@@ -86,7 +86,7 @@ I regress $Y$ on three independent variables -- $X_1$, $X_2$, and $X_3$ -- and I
 
 A.  $\beta_2$ and $\beta_3$ will have negative coefficients, and $\beta_1$ is statistically significant at the 0.05 level (two-tailed),
 
-B.  $\beta_1$ will have a positive coefficient, and $\beta_1$ is the only statistically significant coefficient (of the three coefficients) at the 0.05 level (two-tailed),
+B.  $\beta_1$ **will have a positive coefficient, and** $\beta_1$ **is the only statistically significant coefficient (of the three coefficients) at the 0.05 level (two-tailed),**
 
 C.  $\beta_1$ will have a positive coefficient, $\beta_2$ and $\beta_3$ will have negative coefficients, and only $\beta_1$ and $\beta_3$ are statistically significant at the 0.05 level (two-tailed),
 
@@ -98,11 +98,23 @@ E.  None of the above and/or there is not enough information.
 
 Suppose I estimate a regression with two independent variables and obtain a $R^2$ of 0.40 where the Residual Sum of Squares is equal to 5,150. What does the Total Sum of Squares equal in this regression model?
 
+R2=1-RSS/TSS​
+
+```{r}
+r_squared <- 0.40
+rss <- 5150
+
+# Calculating TSS
+tss <- rss / (1 - r_squared)
+
+data.frame(tss)
+```
+
 ### Question 8
 
 I regress $Y$ on $X_1$ and $X_2$ (i.e., $Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2$). I find that $\beta_1 = -0.87$ with a two-tailed p value of 0.001 and $\beta_2 = 3.52$ with a two-tailed p-value of 0.04. Which of the following statements is most accurate?
 
-A.  $X_2$ has a larger substantive effect on $Y$ than $X_1$, but the effect of $X_1$ is more statistically significant,
+A.  $X_2$ **has a larger substantive effect on** $Y$ **than** $X_1$**, but the effect of** $X_1$ **is more statistically significant,**
 
 B.  $X_1$ has a larger substantive effect on $Y$ than $X_2$ and $X_1$ is more statistically significant than $X_2$,
 
@@ -118,7 +130,7 @@ A.  The correlation between $X_1$ and $Y$ is stronger than the correlation betwe
 
 B.  The coefficient on $\beta_1$ is statistically significant in both models,
 
-C.  The model with $X_1$ and $X_2$ explains more of the variation in $Y$ than a model with just $X_1$,
+C.  **The model with** $X_1$ **and** $X_2$ **explains more of the variation in** $Y$ **than a model with just** $X_1$**,**
 
 D.  All of the above: all of these statements are true.
 
@@ -129,6 +141,8 @@ Based on the following regression equation, might the negative coefficient on th
 $$
 Turnout = 34 + 0.5(Percent\ High\ School\ Graduates) – 5.9(South)
 $$
+
+The negative coefficient on the South variable could be a result of multicollinearity, where southern states having a lower proportion of high school graduates (a variable positively associated with turnout) might lead to an overestimation of the negative impact of being a southern state on voter turnout.
 
 ## Applied Questions
 
@@ -144,6 +158,11 @@ Use the `world` dataset to answer the following questions. The relevant variable
 library(poliscidata)
 library(modelsummary)
 library(stargazer)
+library(broom)
+library(tidyverse)
+library(modelsummary)
+library(marginaleffects)
+library(ggdist)
 ```
 
 #### Part A
@@ -160,28 +179,15 @@ world_data <- read_csv("world.csv")
 ```{r}
 m <- lm(literacy ~ spendeduc, data = world_data)
 print(m)
-stargazer(m, 
-          type = "text", 
-          covariate.labels = c("Education Expend (%)", "Intercept"),
-          dep.var.labels = c("Literacy Rate"),
-          ci = TRUE,  
-          ci.level = 0.95)
-tidy(m)
+modelsummary(m, 
+             coef_rename = c(spendeduc = "Education Expend (%)"),
+             statistic = c("t = {statistic}", "SE = {std.error}", "conf.int"))
+summary(m)
 ```
 
-$H_a:$ The greater proportion of a country's GDP that it spends on education expenduture, the higher literacy rate its citizens will have on average
+$H_a:$ The greater proportion a country spends on education expenditure, the higher literacy rate its citizens will have on average
 
-$H_o:$ There is no significant relationship between the proportion of a country's GDP spent on education expenditure and the average literacy rate of its citizens
-
-**Interpretation:**
-
-In the model, the intercept tells us that on average literacy rate is 64 when country spends zero on GDP and education expenditure
-
-The coefficient of GDP tells that for every one-unit increase in a county GDP, its literacy rate is expected to increase by 23.36 on average, holding all else constant.
-
-The coefficient for education expenditure tells that when country education expenditure increase by 1% its literacy rate is expected to increase by 1.24 on average, holding all else constant.
-
-**Findings**: The results from my model reveal that both the GDP and education expenditure variables are statistically significant. The coefficient for GDP stands at 23.36, accompanied by a highly significant p-value of 0.0000913. Similarly, the coefficient for education expenditure is also significant at 1.24 with a p-value of 0.00014. However, the model exhibits a relatively low R-squared value of 0.33, indicating that it explains only a limited portion of the variation in the data
+$H_0:$ There is no significant relationship between the proportion a country spend on education expenditure and the average literacy rate of its citizens
 
 #### Part B
 
@@ -193,13 +199,35 @@ Estimate a second regression model (using R) that includes both a country's publ
 data("world")
 model <- lm(literacy ~ spendeduc + dem_score14, data = world_data)
 print(model)
-stargazer(model, 
-          type = "text", 
-          covariate.labels = c("Education Expend (%)", "Level of Democracy", "Intercept"),
-          dep.var.labels = c("Literacy Rate"),
-          ci = TRUE,  
-          ci.level = 0.95)
+
+modelsummary(model, 
+             coef_rename = c(spendeduc = "Education Expend (%)",dem_score14= "Democracy Score"),
+             statistic = c("t = {statistic}", "SE = {std.error}", "conf.int"))
+
+tidy(model)
 ```
+
+$H_a:$ The greater proportion a country spends on education expenditure and high level of democracy, the higher literacy rate its citizens will have on average
+
+$H_0:$ There is no significant relationship between the proportion a country spend on education expenditure and its level of democracy on literacy rate of its citizens
+
+**Interpretation:**
+
+The intercept in this model is 53.7. It means the expected literacy rate when both education expenditure and democracy score zero.
+
+The coefficient for education expenditure tells that when country education expenditure increase by 1% its literacy rate is expected to increase by 0.25 on average, holding all else constant.
+
+The coefficient for democracy score is 4.65. This suggests that for each one-unit increase in the democracy score, the literacy rate increases by 4.65 units on average, holding all else constant.
+
+When controlling for democratization, education expenditure does not exhibit a significant impact on the literacy rate. The high p-value associated with education expenditure indicates that we cannot reject the null hypothesis that there is no association between education expenditure and the literacy rate at typical significance levels.
+
+The democracy score, on the other hand, shows a strong association with the literacy rate, meaning that it may be a more powerful predictor in this model.
+
+The high significance of the intercept could indicate that there are other factors, not included in the model, that also have a substantial baseline effect on the dependent variable. However, without more context, it's difficult to interpret the practical implications of the intercept.
+
+**Why the change:**
+
+Changes in significance could occur due to multicollinearity. If education expenditure and democracy scores are correlated, this could inflate the variance of the coefficient estimates and make it harder to detect a true effect. Similarly, it could also be due to mediation; democracy levels might mediate the relationship between education expenditure and literacy; in other words, the impact of education spending on literacy might operate through its effect on democratization.
 
 #### Part C
 
@@ -208,14 +236,33 @@ stargazer(model,
 Now estimate a third model (using R) that includes all of the variables listed above. Report the regression results in a professionally formatted table and interpret each coefficient. When interpreting the impact of democratization using this regression model, present/utilize a visual representation (using R) of the expected change in literacy as a function of democratization.
 
 ```{r}
-all <- lm(literacy ~ dem_score14 + spendeduc + gdp_10_thou + educ_quality + ungr9095, data = world_data)
-print(all)
-stargazer(all, 
-          type = "text", 
-          covariate.labels = c("Level of Democracy", "Education Expend", "GDP", "Education Quality", "Avg Annual Pop"),
-          dep.var.labels = c("Literacy Rate"),
-          ci = TRUE,  
-          ci.level = 0.95)
+full_model <- lm(literacy ~ dem_score14 + spendeduc + gdp_10_thou + educ_quality + ungr9095, data = world_data)
+print(full_model)
+
+modelsummary(full_model, 
+             coef_rename = c(dem_score14 = "Democracy Score",spendeduc= "Education Expend (%)", gdp_10_thou = "GDP Per Capita", educ_quality = "Average Quality Rating of a Country's Educ System", ungr9095 = "% of Average Annual Population Growth"),
+             statistic = c("t = {statistic}", "SE = {std.error}", "conf.int"))
+
+summary(full_model)
+```
+
+**Interpretation:**
+
+In this model the intercept is 55.9; This is the estimated average literacy rate when all other variables in the model are held at zero. Given that having zero GDP or a democracy score doesn't make practical sense, the intercept here is just a statistical control and may not have a meaningful interpretation outside the context of the data.
+
+The coefficient for democracy score is 2.55; meaning for each one-unit increase in the democracy score, the literacy rate is expected to increase by approximately 2.55 points, holding all other variables constant. This effect is statistically significant at the 0.01 level (p-value = 0.006395), which indicates a strong relationship between democracy and literacy.
+
+The coefficient for education expenditure is 0.11 which suggests a very small and statistically non-significant increase in the literacy rate for each percentage point increase in education expenditure as a share of GDP on average. It implies that within the model, the amount spent on education relative to GDP does not appear to significantly affect literacy rates when other factors are accounted for.
+
+The coefficient for GDP per capita suggests that for each unit increase in GDP per capita, the literacy rate increases by approximately 2.36 points on average, holding all else constant.
+
+The coefficient for average Quality Rating of a Country's Education System is 3.81 suggests that a one-unit increase in the quality rating of a country's education system is associated with an increase in the literacy rate by approximately 3.81 points on average, holding all else constant.
+
+The coefficient for the percentage of average annual population growth is -3.32 For each one-unit increase in the average annual percentage of population growth, there is a decrease in the literacy rate by approximately 3.33 points on average, holding all else constant.
+
+```{r}
+plot_predictions(full_model, condition = "dem_score14")+
+  theme_classic()
 ```
 
 ### Question 2
@@ -224,17 +271,48 @@ stargazer(all,
 
 Using the `states` dataset, use R to regress the variable `obama08` (the percentage of a state's vote that President Obama received in the 2008 U.S. presidential election) on the following independent variables: `cig_tax` represents the amount of a state's cigarette tax (in dollars); `college` is the percentage of a state's population that graduated college (0 to 100); `union07` is the percentage of a state's workers that are union members (0 to 100); and `south` is a dichotomous variable coded as `1` if the state is located in the South (`0` otherwise). Report the results in a professionally formatted table. Answer the following questions.
 
+```{r}
+data("states")
+m_obama <- lm(obama08 ~ cig_tax + college + union07 + south, data = states)
+print(m_obama)
+modelsummary(m_obama, 
+             coef_rename = c(cig_tax =  "Cigarette Tax ($)",college= "College Graduates", union07 = "Union Membership", south = "Southern States"),
+             statistic = c("t = {statistic}", "SE = {std.error}", "conf.int"))
+
+summary(m_obama)
+```
+
 #### Part A
 
 *Points: 6*
 
 Interpret the substantive results from this regression model. Be sure to discuss the direction, magnitude, and statistical significance of each slope coefficient. Does the `union07` variably exhibit a substantively significant impact on voting behavior in the 2008 election?
 
+**Interpretation:**
+
+The intercept in this model tells is 16.12 which indicates the predicted percentage of the vote for president Obama in 2008 when all the independent variables are zero.
+
+The coefficient for cigarette tax is 0.52, which suggests that for each additional dollar in the state cigarette tax, the percentage of the vote for President Obama increases by 0.52 percentage points on average, holding all else constant. this effect is not statistically significant (p-value = 0.81), indicating that there is not enough evidence to suggest that cigarette tax levels had an impact on Obama's vote percentage.
+
+The model predicts that for each one-percentage-point increase in the college-educated population, the percentage of the vote for President Obama increases by 0.96 percentage points on average, holding all else constant. This effect is statistically significant (p-value = 0.0029), indicating a positive and substantial relationship between the proportion of college graduates in a state and the vote percentage for Obama.
+
+The coefficient for union member is 0.75 indicating that for each one-percentage-point increase in union membership among workers, Obama's vote percentage is expected to increase by 0.75 percentage points, all else being equal. This effect is statistically significant (p-value = 0.0035), suggesting that states with higher percentages of union workers were more likely to vote for Obama. The magnitude of this effect is substantial, considering that union membership percentages do not typically change dramatically from year to year.
+
+The coefficient fors southern state is 1.39 indicates that being a state in the South is associated with a 1.39 percentage point increase in the vote for President Obama. However, this effect is not statistically significant (p-value = 0.59), meaning we cannot confidently say that Southern states, as a group, had a different voting pattern for Obama than non-Southern states, when controlling for the other variables in the model.
+
+the variable union07 does exhibit a substantively significant impact on voting behavior in the 2008 election. The direction of the relationship is positive, meaning that states with a higher percentage of union membership tended to vote more for Obama. The magnitude of the effect is also significant, with each percentage point increase in union membership translating to almost a full percentage point increase in Obama's vote share, which can be a substantial difference in a close election. The statistical significance indicates that this is a robust finding and not likely due to random chance.
+
+discuss the direction and magnitude
+
 #### Part B
 
 *Points: 2*
 
 Interpret the intercept coefficient. What does this represent and is it meaningful to interpret this coefficient on its own? Why or why not?
+
+In regression the intercept represents the expected value of the dependent variable when all the independent variables are zero. in this model, the intercept is 16.12 representing the predicted percentage of votes that president Obama would have recieved in the 2008 election if the cigarette tax was zero dollars, the percentage of college graduates was 0%, the percentage of union membership was 0%, and the state was not in the South.
+
+Interpreting the intercept on its own is usually not meaningful for. In this model it is not possible for a state to have 0% college graduates or 0% union members, and every state has some level of cigarette tax. Therefore, the scenario where all independent variables are zero does not exist in reality. And,
 
 #### Part C
 
@@ -248,12 +326,18 @@ What is the expected mean percentage of Obama's vote total in a Southern state w
 
 What is a 90% confidence interval around the coefficient for the `south` variable.
 
-```{r}
+Lower bound = 1.3928−(1.645×2.5885)
 
-```
+Upper bound = 1.3928+(1.645×2.5885)
+
+The 90% confident interval for the sout variable is -2.86 for the lower bound and 5.65 for the upper bound.
 
 #### Part D
 
 *Points: 3*
 
 What is the null hypothesis that the F-test in this regression output is testing?
+
+The $H_0:$ for the F-Test is: $H_0: = \beta_1 = \beta_2= \beta_3=...=\beta_K=0$
+
+A significant F-test (i.e., a small p-value) would lead to the rejection of the null hypothesis, suggesting that at least one of the independent variables has a significant relationship with the dependent variable. In your model, since the F-statistic has a very low p-value (8.504e-07), it suggests that collectively, the independent variables have a statistically significant effect on the dependent variable, which is the percentage of the vote that President Obama received in the 2008 U.S. presidential election.
