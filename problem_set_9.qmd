@@ -18,6 +18,10 @@ Please upload your completed assignment to the ELMs course site (under the assig
 
 *Points: 10*
 
+::: {.callout-tip}
+10/10
+:::
+
 Table 1 below reports the results from two regression models. In Model 1, in Table 1, $Y$ is regressed on $X_1$ and, in Model 2, $Y$ is regressed on both $X_1$ and $X_2$. Why might $X_1$ be statistically significant at conventional levels in Model 1 but statistically insignificant in Model 2? Be as specific as possible.
 
 ![](images/image-1466862551.png){width="397"}
@@ -29,6 +33,10 @@ Multicollinearity could also be after that is effecting this. If $X_1$​ and $X
 ## Question 2
 
 *Points: 10*
+
+::: {.callout-tip}
+10/10
+:::
 
 Using the `censusAggregate` dataset (posted on ELMs) --- which is survey data aggregated to the state level (1972-2000) --- estimate a regression with `vote` as the dependent variable and the following independent variables: `nonSouth`, `edr`, and `pcthsg`. Report the results in a professionally formatted table and interpret the regression results.
 
@@ -57,7 +65,7 @@ library(readr)
 ```
 
 ```{r, echo=FALSE}
-census <- read_csv("~/RWork/gvpt_problem_sets/Data/censusAggregate.csv")
+census <- read_csv("Data/censusAggregate.csv")
 ```
 
 ```{r}
@@ -94,15 +102,27 @@ The constant term represents the expected value of the dependent variable when a
 
 *Points: 5*
 
+::: {.callout-tip}
+3/5
+:::
+
 Using the regression results from the previous question, evaluate the null hypothesis that the effects (i.e., regression coefficients) of `nonSouth` and `pcthsg` are jointly equal to zero. Can you reject the null hypothesis? Be sure to demonstrate how you reached a definitive conclusion.
 
 The $H_0$ states that both coefficients are equal to zero, which means that these variable have no effect on the dependent variable.
 
 However, after resulting the regression, our models shows that non-southern states and states with high school graduate are both statistically significant. The p-value for both variables is below the significance level of 0.5 giving giving us evidence to reject the null at the 95% confidences.
 
+::: {.callout-tip}
+You needed to run an f-ratio test. 
+:::
+
 ## Question 4
 
 *Points: 15*
+
+::: {.callout-tip}
+15/15
+:::
 
 Using one of the other datasets available in the `poliscidata` package pick one dependent variable and two or more independent variables. Run a regression of the dependent variable on the independent variables. In your answer, describe why you picked the variables you did, produce a professionally formatted results table, and describe your statistical and substantive findings.
 
