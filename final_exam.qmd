@@ -72,11 +72,11 @@ I regress $Y$ on $X$ and find that $\beta_1$ has a two-tailed p-value of 0.04. W
 
 A.  The lower and upper bound of a 95% confidence interval around $\beta_1$ will have the same sign,
 
-B.  **The absolute value for the t-statistic for** $\beta_1$ **will be greater than 1.96,**
+B.  The absolute value for the t-statistic for $\beta_1$ will be greater than 1.96,
 
 C.  A 90% confidence interval around $\beta_1$ will not contain zero,
 
-D.  All of the above,
+D.  **All of the above,**
 
 E.  None of the above and/or there is not enough information.
 
@@ -86,9 +86,9 @@ I regress $Y$ on three independent variables -- $X_1$, $X_2$, and $X_3$ -- and I
 
 A.  $\beta_2$ and $\beta_3$ will have negative coefficients, and $\beta_1$ is statistically significant at the 0.05 level (two-tailed),
 
-B.  $\beta_1$ **will have a positive coefficient, and** $\beta_1$ **is the only statistically significant coefficient (of the three coefficients) at the 0.05 level (two-tailed),**
+B.  $\beta_1$ will have a positive coefficient, and $\beta_1$ is the only statistically significant coefficient (of the three coefficients) at the 0.05 level (two-tailed),
 
-C.  $\beta_1$ will have a positive coefficient, $\beta_2$ and $\beta_3$ will have negative coefficients, and only $\beta_1$ and $\beta_3$ are statistically significant at the 0.05 level (two-tailed),
+C.  $\beta_1$ **will have a positive coefficient,** $\beta_2$ **and** $\beta_3$ **will have negative coefficients, and only** $\beta_1$ **and** $\beta_3$ **are statistically significant at the 0.05 level (two-tailed),**
 
 D.  All of the above,
 
@@ -142,7 +142,7 @@ $$
 Turnout = 34 + 0.5(Percent\ High\ School\ Graduates) – 5.9(South)
 $$
 
-The negative coefficient on the South variable could be a result of multicollinearity, where southern states having a lower proportion of high school graduates (a variable positively associated with turnout) might lead to an overestimation of the negative impact of being a southern state on voter turnout.
+The negative coefficient on the South variable could be a result of multicollinearity; where southern states having a lower proportion of high school graduates confounds the relationship, leading to a negative coefficient for the South variable when controlling for the percentage of high school graduates.
 
 ## Applied Questions
 
@@ -182,12 +182,20 @@ print(m)
 modelsummary(m, 
              coef_rename = c(spendeduc = "Education Expend (%)"),
              statistic = c("t = {statistic}", "SE = {std.error}", "conf.int"))
-summary(m)
+tidy(m)
 ```
 
-$H_a:$ The greater proportion a country spends on education expenditure, the higher literacy rate its citizens will have on average
+$H_a:$ The greater proportion a country spends on education expenditure, the higher literacy rate it will have
 
-$H_0:$ There is no significant relationship between the proportion a country spend on education expenditure and the average literacy rate of its citizens
+$H_0:$ There is no significant relationship between the proportion a country spend on education expenditure and its literacy rate.
+
+**Interpretation:**
+
+The intercept in this model tell us a country's literacy rate on average is 73.2 when it spends zero on education expenditure.
+
+The coefficient for education expenditure is 1.72 meaning that when a countrys' education expenditure increases by one percent its literacy rate increase by 1.72 on average, holding all else constant.
+
+**Findings**: The finding in this model reveal that countries that spend more on education expenditure gain slightly high literacy rate on average. The coefficient for the education expenditure is 1.72 showing positive relationship. However, given the high p-value (0.0505) we cannot conclude that education expenditure is statistically significant. Moreover, the model also have a low r-squared of 0.27 indicating that it explains only a limited portion of the variation in the data.
 
 #### Part B
 
@@ -207,27 +215,25 @@ modelsummary(model,
 tidy(model)
 ```
 
-$H_a:$ The greater proportion a country spends on education expenditure and high level of democracy, the higher literacy rate its citizens will have on average
+$H_a:$ The greater proportion a country spends on education expenditure and high level of democracy, the higher literacy will have on average
 
-$H_0:$ There is no significant relationship between the proportion a country spend on education expenditure and its level of democracy on literacy rate of its citizens
+$H_0:$ There is no significant relationship between the proportion a country spend on education expenditure and its level of democracy on literacy rate.
 
 **Interpretation:**
 
-The intercept in this model is 53.7. It means the expected literacy rate when both education expenditure and democracy score zero.
+The intercept in this model is 53.7. It means on average the expected literacy rate is 53.7 when both education expenditure and democracy score are zero.
 
-The coefficient for education expenditure tells that when country education expenditure increase by 1% its literacy rate is expected to increase by 0.25 on average, holding all else constant.
+The coefficient for education expenditure tells that when country education expenditure increase by one-unit its literacy rate is expected to increase by 0.25 on average, holding all else constant.
 
 The coefficient for democracy score is 4.65. This suggests that for each one-unit increase in the democracy score, the literacy rate increases by 4.65 units on average, holding all else constant.
 
-When controlling for democratization, education expenditure does not exhibit a significant impact on the literacy rate. The high p-value associated with education expenditure indicates that we cannot reject the null hypothesis that there is no association between education expenditure and the literacy rate at typical significance levels.
+When controlling for democratization, education expenditure does not exhibit a significant impact on the literacy rate. The high p-value (0.74) associated with education expenditure indicates that we cannot reject the null hypothesis that there is no association between education expenditure and the literacy rate at typical significance levels of 0.05.
 
-The democracy score, on the other hand, shows a strong association with the literacy rate, meaning that it may be a more powerful predictor in this model.
+The democracy score, on the other hand, shows a strong association with the literacy rate, meaning that it may be a more powerful predictor in this model. It has a very low p-value of 000.18 below the significant threshold giving us evidence to reject the null.
 
-The high significance of the intercept could indicate that there are other factors, not included in the model, that also have a substantial baseline effect on the dependent variable. However, without more context, it's difficult to interpret the practical implications of the intercept.
+**Why the variables change:**
 
-**Why the change:**
-
-Changes in significance could occur due to multicollinearity. If education expenditure and democracy scores are correlated, this could inflate the variance of the coefficient estimates and make it harder to detect a true effect. Similarly, it could also be due to mediation; democracy levels might mediate the relationship between education expenditure and literacy; in other words, the impact of education spending on literacy might operate through its effect on democratization.
+The changes in the significance could be because of multicollinearity. If education expenditure and democracy scores are correlated, this could inflate the variance of the coefficient estimates and make it harder to detect a true effect. Similarly, it could also be because of mediation; democracy levels might mediate the relationship between education expenditure and literacy; the impact of education spending on literacy might operate through its effect on democratization.
 
 #### Part C
 
@@ -246,24 +252,25 @@ modelsummary(full_model,
 summary(full_model)
 ```
 
-**Interpretation:**
-
-In this model the intercept is 55.9; This is the estimated average literacy rate when all other variables in the model are held at zero. Given that having zero GDP or a democracy score doesn't make practical sense, the intercept here is just a statistical control and may not have a meaningful interpretation outside the context of the data.
-
-The coefficient for democracy score is 2.55; meaning for each one-unit increase in the democracy score, the literacy rate is expected to increase by approximately 2.55 points, holding all other variables constant. This effect is statistically significant at the 0.01 level (p-value = 0.006395), which indicates a strong relationship between democracy and literacy.
-
-The coefficient for education expenditure is 0.11 which suggests a very small and statistically non-significant increase in the literacy rate for each percentage point increase in education expenditure as a share of GDP on average. It implies that within the model, the amount spent on education relative to GDP does not appear to significantly affect literacy rates when other factors are accounted for.
-
-The coefficient for GDP per capita suggests that for each unit increase in GDP per capita, the literacy rate increases by approximately 2.36 points on average, holding all else constant.
-
-The coefficient for average Quality Rating of a Country's Education System is 3.81 suggests that a one-unit increase in the quality rating of a country's education system is associated with an increase in the literacy rate by approximately 3.81 points on average, holding all else constant.
-
-The coefficient for the percentage of average annual population growth is -3.32 For each one-unit increase in the average annual percentage of population growth, there is a decrease in the literacy rate by approximately 3.33 points on average, holding all else constant.
-
 ```{r}
-plot_predictions(full_model, condition = "dem_score14")+
+plot_predictions(full_model,
+                 condition = "dem_score14")+
   theme_classic()
 ```
+
+**Interpretation:**
+
+In our model the intercept is 55.9; it tells us the estimated average literacy rate when all the independent variables in the model are held at zero.
+
+The coefficient for democracy score is 2.55; meaning for each one-unit increase in the democracy score, the literacy rate is expected to increase by approximately 2.55 points, on average, holding all other variables constant. With a p-value of 0.0063 it is statistically significant at the 0.05 significance level; which indicates a strong relationship between democracy and literacy.
+
+The coefficient for education expenditure is 0.11 which means for each percentage point increase in education expenditure as a share of GDP literacy rate increase by 0.11 on average, holding all else constant. Education expenditure is not statistically significant at the 0.05 significant level, it has a high p-value of .90.
+
+The coefficient for GDP per capita is 2.36 means that for each unit increase in GDP per capita, the literacy rate increases by approximately 2.36 points on average, holding all else constant.
+
+The coefficient for average Quality Rating of a Country's Education System is 3.81 means that a one-unit increase in the quality rating of a country's education system is associated with an increase in the literacy rate by approximately 3.81 points on average, holding all else constant.
+
+Similarly, the coefficient for the percentage of average annual population growth is -3.32 meaning for each one-unit increase in the average annual percentage of population growth, there is a decrease in the literacy rate by approximately 3.33 points on average, holding all else constant.
 
 ### Question 2
 
@@ -292,17 +299,15 @@ Interpret the substantive results from this regression model. Be sure to discuss
 
 The intercept in this model tells is 16.12 which indicates the predicted percentage of the vote for president Obama in 2008 when all the independent variables are zero.
 
-The coefficient for cigarette tax is 0.52, which suggests that for each additional dollar in the state cigarette tax, the percentage of the vote for President Obama increases by 0.52 percentage points on average, holding all else constant. this effect is not statistically significant (p-value = 0.81), indicating that there is not enough evidence to suggest that cigarette tax levels had an impact on Obama's vote percentage.
+The coefficient for cigarette tax is 0.52, which means that for each additional dollar in the state cigarette tax, the percentage of the vote for President Obama increases by 0.52 percentage points on average, holding all else constant. This effect is not statistically significant (p-value = 0.81) at the .05 significance level, indicating that there is not enough evidence to suggest that cigarette tax levels had an impact on Obama's vote percentage.
 
-The model predicts that for each one-percentage-point increase in the college-educated population, the percentage of the vote for President Obama increases by 0.96 percentage points on average, holding all else constant. This effect is statistically significant (p-value = 0.0029), indicating a positive and substantial relationship between the proportion of college graduates in a state and the vote percentage for Obama.
+The coefficient for college graduate is 0.96; it means that for each one percentage point increase in the college-educated population, the percentage of the vote for President Obama increases by 0.96 percentage points on average, holding all else constant. This effect is statistically significant (p-value = 0.0029) at the .05 significant level, indicating a positive and substantial relationship between the proportion of college graduates in a state and the vote percentage for Obama in 2008.
 
-The coefficient for union member is 0.75 indicating that for each one-percentage-point increase in union membership among workers, Obama's vote percentage is expected to increase by 0.75 percentage points, all else being equal. This effect is statistically significant (p-value = 0.0035), suggesting that states with higher percentages of union workers were more likely to vote for Obama. The magnitude of this effect is substantial, considering that union membership percentages do not typically change dramatically from year to year.
+The coefficient for union member is 0.75 indicating that for each one percentage point increase in union membership among workers, Obama's vote percentage is expected to increase by 0.75 percentage points on average, all else being equal. This effect is statistically significant (p-value = 0.0035), suggesting that states with higher percentages of union workers were more likely to vote for Obama. The magnitude of this effect is substantial, considering that union membership percentages do not typically change dramatically from year to year.
 
-The coefficient fors southern state is 1.39 indicates that being a state in the South is associated with a 1.39 percentage point increase in the vote for President Obama. However, this effect is not statistically significant (p-value = 0.59), meaning we cannot confidently say that Southern states, as a group, had a different voting pattern for Obama than non-Southern states, when controlling for the other variables in the model.
+The coefficient for southern state is 1.39 indicating that being a state in the South is associated with a 1.39 percentage point increase in the vote for President Obama on average, holding all else constant. However, this effect is not statistically significant (p-value = 0.59) at the .05 significances level, meaning we cannot confidently say that Southern states, as a group, had a different voting pattern for Obama than non-Southern states, when controlling for the other variables in the model.
 
-the variable union07 does exhibit a substantively significant impact on voting behavior in the 2008 election. The direction of the relationship is positive, meaning that states with a higher percentage of union membership tended to vote more for Obama. The magnitude of the effect is also significant, with each percentage point increase in union membership translating to almost a full percentage point increase in Obama's vote share, which can be a substantial difference in a close election. The statistical significance indicates that this is a robust finding and not likely due to random chance.
-
-discuss the direction and magnitude
+The variable union07 does exhibit a substantively significant impact on voting behavior in the 2008 election. The direction of the relationship is positive, meaning that states with a higher percentage of union membership tended to vote more for Obama. The magnitude of the effect is also significant, with each percentage point increase in union membership translating to almost a full percentage point increase in Obama's vote share, which can be a substantial difference in a close election. With a p-value of 0.0035 it is statistical significance indicating that this is a robust finding and not likely due to random chance.
 
 #### Part B
 
@@ -310,15 +315,28 @@ discuss the direction and magnitude
 
 Interpret the intercept coefficient. What does this represent and is it meaningful to interpret this coefficient on its own? Why or why not?
 
-In regression the intercept represents the expected value of the dependent variable when all the independent variables are zero. in this model, the intercept is 16.12 representing the predicted percentage of votes that president Obama would have recieved in the 2008 election if the cigarette tax was zero dollars, the percentage of college graduates was 0%, the percentage of union membership was 0%, and the state was not in the South.
+The intercept represents the expected value of the dependent variable when all the independent variables are zero. In this model, the intercept is 16.12 representing the predicted percentage of votes that president Obama would have recieved in the 2008 election if the cigarette tax was zero dollars, the percentage of college graduates was 0%, the percentage of union membership was 0%, and the state was not in the South.
 
-Interpreting the intercept on its own is usually not meaningful for. In this model it is not possible for a state to have 0% college graduates or 0% union members, and every state has some level of cigarette tax. Therefore, the scenario where all independent variables are zero does not exist in reality. And,
+Interpreting the intercept on its own is usually not meaningful. In this model it is not possible for a state to have 0% college graduates or 0% union members, and every state has some level of cigarette tax. Therefore, the scenario where all independent variables are zero does not exist in reality.
 
 #### Part C
 
 *Points: 2*
 
 What is the expected mean percentage of Obama's vote total in a Southern state with a cigarette tax of \$2.00, a state population where 30% of people are college graduates, and where 15% of workers in a state are union members?
+
+$$
+Y=\beta0 +1(CigaretteTax)+\beta2(CollegeGraduate)+\beta3(SouthernStates)+\beta4(UnionMembers)$$
+$$
+Y = 16.128+(0.53*2)+(0.965*30)+(1.393*1)+(0.751*15)
+$$
+$$
+Y=16.12+1.046+28.95+1.393+11.26
+$$
+
+$$
+Y=58.782
+$$
 
 #### Part D
 
@@ -330,7 +348,7 @@ Lower bound = 1.3928−(1.645×2.5885)
 
 Upper bound = 1.3928+(1.645×2.5885)
 
-The 90% confident interval for the sout variable is -2.86 for the lower bound and 5.65 for the upper bound.
+The 90% confident interval for the south variable is -2.86 for the lower bound and 5.65 for the upper bound.
 
 #### Part D
 
@@ -338,6 +356,4 @@ The 90% confident interval for the sout variable is -2.86 for the lower bound an
 
 What is the null hypothesis that the F-test in this regression output is testing?
 
-The $H_0:$ for the F-Test is: $H_0: = \beta_1 = \beta_2= \beta_3=...=\beta_K=0$
-
-A significant F-test (i.e., a small p-value) would lead to the rejection of the null hypothesis, suggesting that at least one of the independent variables has a significant relationship with the dependent variable. In your model, since the F-statistic has a very low p-value (8.504e-07), it suggests that collectively, the independent variables have a statistically significant effect on the dependent variable, which is the percentage of the vote that President Obama received in the 2008 U.S. presidential election.
+The null hypothesis that the F-test is testing is that none of the coefficients ($\beta_1, \beta_2, \beta_3,\beta_4$) have a statistically significant relationship with the dependent variable. The null posits that the coefficients for all of these independent variables are equal to zero, and they do not provide any explanatory power to the model in predicting the percentage of the vote President Obama received in the 2008 U.S. presidential election in the states.

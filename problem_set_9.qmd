@@ -18,7 +18,7 @@ Please upload your completed assignment to the ELMs course site (under the assig
 
 *Points: 10*
 
-::: {.callout-tip}
+::: callout-tip
 10/10
 :::
 
@@ -36,7 +36,7 @@ different sample size. if we have more data on x2 than x1, our ability to captur
 
 *Points: 10*
 
-::: {.callout-tip}
+::: callout-tip
 10/10
 :::
 
@@ -104,7 +104,7 @@ The constant term represents the expected value of the dependent variable when a
 
 *Points: 5*
 
-::: {.callout-tip}
+::: callout-tip
 3/5
 :::
 
@@ -114,15 +114,15 @@ The $H_0$ states that both coefficients are equal to zero, which means that thes
 
 However, after resulting the regression, our models shows that non-southern states and states with high school graduate are both statistically significant. The p-value for both variables is below the significance level of 0.5 giving giving us evidence to reject the null at the 95% confidences.
 
-::: {.callout-tip}
-You needed to run an f-ratio test. 
+::: callout-tip
+You needed to run an f-ratio test.
 :::
 
 ## Question 4
 
 *Points: 15*
 
-::: {.callout-tip}
+::: callout-tip
 15/15
 :::
 
